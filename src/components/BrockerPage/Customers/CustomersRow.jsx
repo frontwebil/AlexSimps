@@ -10,22 +10,22 @@ export function CustomerRow({ el, i }) {
       <div className="list-container-card-text" style={{ maxWidth: "15%" }}>
         {el.customerName}
       </div>
-      <div className="list-container-card-text" style={{ maxWidth: "10%" }}>
+      <div className="list-container-card-text" style={{ maxWidth: "13%" }}>
         {el.polica}
       </div>
       <div className="list-container-card-text" style={{ maxWidth: "12%" }}>
         {el.lastUpdate}
       </div>
-      <div className="list-container-card-text" style={{ maxWidth: "20%" }}>
-        {el.type}
+      <div className="list-container-card-text center" style={{ maxWidth: "20%" }}>
+        Annual Till : {el.annualTill}
       </div>
-      <div className="list-container-card-text" style={{ maxWidth: "10%" }}>
+      <div className="list-container-card-text center" style={{ maxWidth: "10%" }}>
         {el.status}
       </div>
-      <div className="list-container-card-text" style={{ maxWidth: "8%" }}>
+      <div className="list-container-card-text" style={{ maxWidth: "10%" }}>
         {el.phone}
       </div>
-      <div className="list-container-card-text" style={{ maxWidth: "10%" }}>
+      <div className="list-container-card-text center underline" style={{ maxWidth: "5%" }}>
         {el.task}
       </div>
       <Link
