@@ -14,7 +14,7 @@ export function Customers() {
       <ControlsPanelAdminPage />
       <Search data={data} setData={setData} defaultData={customersAdmin}/>
       <div className="business-list">
-        <SortFiltrButtons data={data} setData={setData} sortByButtons={sortByButtons} defaultData={customersAdmin}/>
+        <SortFiltrButtons data={data} setData={setData} sortByButtons={sortByButtons} defaultData={customersAdmin} addCustomers={true}/>
         <div className="business-list-container">
           <CustomersRowTitle />
           <div className="container-for-content" id="place-for-business-card">

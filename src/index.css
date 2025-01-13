@@ -8,6 +8,7 @@
 @import url(css/icons.css);
 @import url(css/admin-page/tableInfo.css);
 @import url(css/sortFiltrButtons.css);
+@import url(css/addCustomer.css);
 
 html,
 body {
@@ -159,3 +160,4 @@ select:focus {
   display: flex;
   gap: 10px;
 }
+

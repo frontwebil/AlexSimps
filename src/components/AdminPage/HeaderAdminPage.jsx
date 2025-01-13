@@ -44,11 +44,11 @@ export function HeaderAdminPage() {
             Agents
           </p>
         </Link>
-        <Link to="/reports">
+        {/* <Link to="/reports">
           <p className={`nav-button ${location == "/reports" ? "focus" : ""}`}>
             Reports
           </p>
-        </Link>
+        </Link> */}
         <Link to="/settings">
           <p className={`nav-button ${location == "/settings" ? "focus" : ""}`}>
             Settings

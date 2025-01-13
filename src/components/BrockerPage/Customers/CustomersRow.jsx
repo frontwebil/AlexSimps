@@ -8,7 +8,7 @@ export function CustomerRow({ el, i }) {
         {el.idCustomer}
       </div>
       <div className="list-container-card-text" style={{ maxWidth: "15%" }}>
-        {el.customerName}
+        {el.name}
       </div>
       <div className="list-container-card-text" style={{ maxWidth: "13%" }}>
         {el.polica}

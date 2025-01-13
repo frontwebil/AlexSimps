@@ -8,8 +8,13 @@
   background: #fff;
 }
 .content-input {
-  max-width: 540px;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  max-width: 1440px;
   margin: 0 auto 20px;
+  padding: 0 10px;
 }
 
 .bg{

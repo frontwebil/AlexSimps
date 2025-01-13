@@ -3,7 +3,6 @@ import { ControlsPanelAdminPage } from "../../ControlsPanelAdminPage";
 import { Search } from "../../Search/Search";
 import { AgentsData } from "../../../../../consts/agents";
 import { AgentInfoTable } from "./AgentInfoTable";
-import { BackTo } from "./BackTo";
 
 export function AgentInfo() {
   const { id } = useParams();
@@ -12,7 +11,6 @@ export function AgentInfo() {
     <div>
       <ControlsPanelAdminPage />
       <Search current={currentAgent.user}/>
-      <BackTo link={'/agents'}/>
       <AgentInfoTable currentAgent={currentAgent}/>
     </div>
   );

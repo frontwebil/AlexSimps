@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { MdOutlineArrowBack } from "react-icons/md";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export function Search({ setData, data = [], defaultData, current = "All" }) {
   const [searchTerm, setSearchTerm] = useState("");
   const location = useLocation().pathname;
+  const navigate = useNavigate();
 
   const searchKeys =
     data.length > 0 && typeof data[0] === "object" ? Object.keys(data[0]) : [];
@@ -38,24 +40,48 @@ export function Search({ setData, data = [], defaultData, current = "All" }) {
       <div className="bg">
         <div className="content">
           <div className="content-input">
+            <div className="BackTo">
+              <div className="BackTo-button" onClick={() => navigate(-1)}>
+                <MdOutlineArrowBack />
+                <p>Back</p>
+              </div>
+            </div>
             <input
               type="text"
               placeholder="Search"
               className="content-input-inner"
-              disabled
+              value={searchTerm}
+              onChange={(e) => {
+                setSearchTerm(e.target.value);
+              }}
             />
+            <div className="BackTo">
+              <div className="BackTo-button" onClick={() => navigate(+1)}>
+                <p>Next</p>
+                <MdOutlineArrowBack style={{ transform: "scaleX(-1)" }} />
+              </div>
+            </div>
           </div>
+          {current!==false && (
           <div className="content-info">
             <div className="content-info-container">
               <div className="content-info-text">
                 <p className="currentPage">
-                  {location.slice(1).split("/")[0]} -&nbsp;
+                  {location === "/"
+                    ? "Business"
+                    : location
+                        .match(/\/([^/]+)/)[1]
+                        .charAt(0)
+                        .toUpperCase() +
+                      location.match(/\/([^/]+)/)[1].slice(1)}{" "}
+                  -&nbsp;
                 </p>
                 <p className="curent-section">{current}</p>
               </div>
               <div className="" style={{ width: "175px" }}></div>
             </div>
           </div>
+        )}
         </div>
       </div>
     );
@@ -65,6 +91,12 @@ export function Search({ setData, data = [], defaultData, current = "All" }) {
     <div className="bg">
       <div className="content">
         <div className="content-input">
+          <div className="BackTo">
+            <div className="BackTo-button" onClick={() => navigate(-1)}>
+              <MdOutlineArrowBack />
+              <p>Back</p>
+            </div>
+          </div>
           <input
             type="text"
             placeholder="Search"
@@ -74,25 +106,33 @@ export function Search({ setData, data = [], defaultData, current = "All" }) {
               setSearchTerm(e.target.value);
             }}
           />
-        </div>
-        <div className="content-info">
-          <div className="content-info-container">
-            <div className="content-info-text">
-              <p className="currentPage">
-                {location === "/"
-                  ? "Customers"
-                  : location
-                      .match(/\/([^/]+)/)[1]
-                      .charAt(0)
-                      .toUpperCase() +
-                    location.match(/\/([^/]+)/)[1].slice(1)}{" "}
-                -&nbsp;
-              </p>
-              <p className="curent-section">{current}</p>
+          <div className="BackTo">
+            <div className="BackTo-button" onClick={() => navigate(+1)}>
+              <p>Next</p>
+              <MdOutlineArrowBack style={{ transform: "scaleX(-1)" }} />
             </div>
-            <div className="" style={{ width: "175px" }}></div>
           </div>
         </div>
+        {current!==false && (
+          <div className="content-info">
+            <div className="content-info-container">
+              <div className="content-info-text">
+                <p className="currentPage">
+                  {location === "/"
+                    ? "Customers"
+                    : location
+                        .match(/\/([^/]+)/)[1]
+                        .charAt(0)
+                        .toUpperCase() +
+                      location.match(/\/([^/]+)/)[1].slice(1)}{" "}
+                  -&nbsp;
+                </p>
+                <p className="curent-section">{current}</p>
+              </div>
+              <div className="" style={{ width: "175px" }}></div>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

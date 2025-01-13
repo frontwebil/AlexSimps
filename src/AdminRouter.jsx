@@ -8,6 +8,7 @@ import { Customers } from "./components/AdminPage/Customers/Customers.jsx";
 import { AgentInfo } from "./components/AdminPage/Agents/AgentInfo/AgentInfo.jsx";
 import { CustomerDetails } from "./components/AdminPage/Customers/СustomerInfo/СustomerDetails.jsx.jsx";
 import { BusinessCustomersInfo } from "./components/AdminPage/Business/BusinessCustomers/BusinessCustomersInfo.jsx";
+import { AddCustomer } from "./components/AdminPage/AddCustomer/AddCustomer.jsx";
 
 export const createAdminRouter = () => {
   return createBrowserRouter([
@@ -22,6 +23,10 @@ export const createAdminRouter = () => {
         {
           path: "settings",
           element: <Settings />,
+        },
+        {
+          path: "addCustomer",
+          element: <AddCustomer />,
         },
         {
           path: "reports",

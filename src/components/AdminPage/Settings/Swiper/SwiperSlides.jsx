@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export const SwiperSlides = [
   <div className="slider-admin-wrapper-slide" key={1}>
   <h2 className="slider-wrapper-slide-title">
@@ -15,7 +17,7 @@ export const SwiperSlides = [
         alt=""
         className="slider-wrapper-content-card-img"
       />
-      <button className="slider-wrapper-content-button">Add</button>
+      <Link to='/customers' className="slider-wrapper-content-button">Add</Link>
     </div>
     <div
       className="slider-wrapper-content-card"

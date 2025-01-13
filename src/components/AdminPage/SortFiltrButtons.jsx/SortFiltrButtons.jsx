@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 export function SortFiltrButtons({
   data,
   setData,
   sortByButtons,
   defaultData,
+  addCustomers,
 }) {
   const [isSorted, setIsSorted] = useState(false);
   const [isFiltered, setIsFiltered] = useState(false);
@@ -16,14 +18,14 @@ export function SortFiltrButtons({
     status: new Set(),
     country: new Set(),
     role: new Set(),
-    city: new Set()
+    city: new Set(),
   });
 
   const [filterOptions, setFilterOptions] = useState({
     status: new Set(),
     country: new Set(),
     role: new Set(),
-    city: new Set()
+    city: new Set(),
   });
 
   useEffect(() => {
@@ -31,14 +33,16 @@ export function SortFiltrButtons({
       status: new Set(defaultData.map((item) => item.status)),
       country: new Set(defaultData.map((item) => item.country)),
       role: new Set(defaultData.map((item) => item.role)),
-      city: new Set(defaultData.map((item) => item.city))
+      city: new Set(defaultData.map((item) => item.city)),
     };
     setFilterOptions(options);
 
     const initialFilters = Object.fromEntries(
       sortByButtons.map((button) => [
         button,
-        ["status", "country", "role", "city"].includes(button) ? [] : { from: "", to: "" },
+        ["status", "country", "role", "city"].includes(button)
+          ? []
+          : { from: "", to: "" },
       ])
     );
     setFilters(initialFilters);
@@ -153,7 +157,9 @@ export function SortFiltrButtons({
       Object.fromEntries(
         sortByButtons.map((button) => [
           button,
-          ["status", "country", "role", "city"].includes(button) ? [] : { from: "", to: "" },
+          ["status", "country", "role", "city"].includes(button)
+            ? []
+            : { from: "", to: "" },
         ])
       )
     );
@@ -161,7 +167,7 @@ export function SortFiltrButtons({
       status: new Set(),
       country: new Set(),
       role: new Set(),
-      city: new Set()
+      city: new Set(),
     });
     setIsFiltered(false);
     setData(defaultData);
@@ -224,7 +230,10 @@ export function SortFiltrButtons({
             <button className="Sort-button" onClick={handleSortAction}>
               Sort
             </button>
-            <button className="Close-button" onClick={() => setIsOpenSort(false)}>
+            <button
+              className="Close-button"
+              onClick={() => setIsOpenSort(false)}
+            >
               Close
             </button>
           </div>
@@ -245,7 +254,9 @@ export function SortFiltrButtons({
                             <input
                               type="checkbox"
                               checked={checkboxFilters[field].has(option)}
-                              onChange={() => handleCheckboxChange(field, option)}
+                              onChange={() =>
+                                handleCheckboxChange(field, option)
+                              }
                             />
                             {option}
                           </label>
@@ -280,9 +291,22 @@ export function SortFiltrButtons({
             <button className="Sort-button" onClick={handleFilterAction}>
               Filter
             </button>
-            <button className="Close-button" onClick={() => setIsOpenFiltr(false)}>
+            <button
+              className="Close-button"
+              onClick={() => setIsOpenFiltr(false)}
+            >
               Close
             </button>
+          </div>
+        )}
+        {addCustomers && (
+          <div className="sortFiltrButtons-flexButtons">
+            <Link
+              to="/addCustomer"
+              className={`sortFiltrButtons-button active`}
+            >
+              Add Customer
+            </Link>
           </div>
         )}
       </div>

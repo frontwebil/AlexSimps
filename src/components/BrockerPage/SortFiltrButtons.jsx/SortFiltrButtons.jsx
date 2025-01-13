@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 export function SortFiltrButtons({
   data,
   setData,
   sortByButtons,
   defaultData,
+  addCustomers,
 }) {
   const [isSorted, setIsSorted] = useState(false);
   const [isFiltered, setIsFiltered] = useState(false);
@@ -16,14 +18,16 @@ export function SortFiltrButtons({
     status: new Set(),
     country: new Set(),
     role: new Set(),
-    city: new Set()
+    city: new Set(),
+    polica: new Set(),
   });
 
   const [filterOptions, setFilterOptions] = useState({
     status: new Set(),
     country: new Set(),
     role: new Set(),
-    city: new Set()
+    city: new Set(),
+    polica: new Set(),
   });
 
   useEffect(() => {
@@ -31,14 +35,17 @@ export function SortFiltrButtons({
       status: new Set(defaultData.map((item) => item.status)),
       country: new Set(defaultData.map((item) => item.country)),
       role: new Set(defaultData.map((item) => item.role)),
-      city: new Set(defaultData.map((item) => item.city))
+      city: new Set(defaultData.map((item) => item.city)),
+      polica: new Set(defaultData.map((item) => item.polica)),
     };
     setFilterOptions(options);
 
     const initialFilters = Object.fromEntries(
       sortByButtons.map((button) => [
         button,
-        ["status", "country", "role", "city"].includes(button) ? [] : { from: "", to: "" },
+        ["status", "country", "role", "city", "polica"].includes(button)
+          ? []
+          : { from: "", to: "" },
       ])
     );
     setFilters(initialFilters);
@@ -57,7 +64,7 @@ export function SortFiltrButtons({
   };
 
   const handleFilterChange = (field, type, value) => {
-    if (!["status", "country", "role", "city"].includes(field)) {
+    if (!["status", "country", "role", "city", "polica"].includes(field)) {
       setFilters((prev) => ({
         ...prev,
         [field]: { ...prev[field], [type]: value },
@@ -67,7 +74,7 @@ export function SortFiltrButtons({
 
   const handleFilterAction = () => {
     const filteredData = [...defaultData].filter((item) => {
-      for (const field of ["status", "country", "role", "city"]) {
+      for (const field of ["status", "country", "role", "city", "polica"]) {
         if (
           checkboxFilters[field].size > 0 &&
           !checkboxFilters[field].has(item[field])
@@ -77,7 +84,8 @@ export function SortFiltrButtons({
       }
 
       return Object.entries(filters).every(([field, range]) => {
-        if (["status", "country", "role", "city"].includes(field)) return true;
+        if (["status", "country", "role", "city", "polica"].includes(field))
+          return true;
 
         let value = item[field];
         let from = range.from;
@@ -153,7 +161,9 @@ export function SortFiltrButtons({
       Object.fromEntries(
         sortByButtons.map((button) => [
           button,
-          ["status", "country", "role", "city"].includes(button) ? [] : { from: "", to: "" },
+          ["status", "country", "role", "city", "polica"].includes(button)
+            ? []
+            : { from: "", to: "" },
         ])
       )
     );
@@ -161,7 +171,7 @@ export function SortFiltrButtons({
       status: new Set(),
       country: new Set(),
       role: new Set(),
-      city: new Set()
+      city: new Set(),
     });
     setIsFiltered(false);
     setData(defaultData);
@@ -224,7 +234,10 @@ export function SortFiltrButtons({
             <button className="Sort-button" onClick={handleSortAction}>
               Sort
             </button>
-            <button className="Close-button" onClick={() => setIsOpenSort(false)}>
+            <button
+              className="Close-button"
+              onClick={() => setIsOpenSort(false)}
+            >
               Close
             </button>
           </div>
@@ -238,14 +251,18 @@ export function SortFiltrButtons({
                     <p style={{ textTransform: "capitalize" }}>
                       {field.replace(/([a-z])([A-Z])/g, "$1 $2")}
                     </p>
-                    {["status", "country", "role", "city"].includes(field) ? (
+                    {["status", "country", "role", "city", "polica"].includes(
+                      field
+                    ) ? (
                       <div className="checkbox-group">
                         {Array.from(filterOptions[field]).map((option, j) => (
                           <label key={j} className="checkbox-label">
                             <input
                               type="checkbox"
                               checked={checkboxFilters[field].has(option)}
-                              onChange={() => handleCheckboxChange(field, option)}
+                              onChange={() =>
+                                handleCheckboxChange(field, option)
+                              }
                             />
                             {option}
                           </label>
@@ -254,7 +271,11 @@ export function SortFiltrButtons({
                     ) : (
                       <div className="inputFlex">
                         <input
-                          type="text"
+                          type={
+                            ["lastUpdate", "annualTill"].includes(field)
+                              ? "date"
+                              : "text"
+                          }
                           className="sortFiltrInputs"
                           placeholder="From"
                           value={filters[field]?.from || ""}
@@ -263,7 +284,11 @@ export function SortFiltrButtons({
                           }
                         />
                         <input
-                          type="text"
+                          type={
+                            ["lastUpdate", "annualTill"].includes(field)
+                              ? "date"
+                              : "text"
+                          }
                           className="sortFiltrInputs"
                           placeholder="To"
                           value={filters[field]?.to || ""}
@@ -280,9 +305,22 @@ export function SortFiltrButtons({
             <button className="Sort-button" onClick={handleFilterAction}>
               Filter
             </button>
-            <button className="Close-button" onClick={() => setIsOpenFiltr(false)}>
+            <button
+              className="Close-button"
+              onClick={() => setIsOpenFiltr(false)}
+            >
               Close
             </button>
+          </div>
+        )}
+        {addCustomers && (
+          <div className="sortFiltrButtons-flexButtons">
+            <Link
+              to="/addCustomer"
+              className={`sortFiltrButtons-button active`}
+            >
+              Add Customer
+            </Link>
           </div>
         )}
       </div>
