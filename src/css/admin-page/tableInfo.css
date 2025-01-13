@@ -1,0 +1,88 @@
+.InfoTableTitle {
+  max-width: 1340px;
+  margin: 0 auto;
+  padding: 10px;
+}
+.InfoTableTitle-container {
+  display: flex;
+  justify-content: center;
+  background-color: #e0ccec;
+  padding: 10px;
+}
+.InfoTableTitle-block {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+  max-width: 430px;
+  width: 100%;
+}
+
+.InfoTableTitle-block-text {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.InfoTable {
+  background-color: #fff;
+  min-height: 40vh;
+  padding-bottom: 20px;
+}
+.InfoTable-container {
+  max-width: 1340px;
+  margin: 0 auto;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+.InfoTable-block {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 430px;
+  padding: 10px 15px;
+  width: 100%;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+}
+
+.InfoTable-block-row {
+  display: flex;
+  justify-content: space-between;
+}
+.InfoTable-text {
+  font-size: 16px;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.BackTo {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 15px 24px 10px;
+}
+
+.BackTo-button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 10px;
+  cursor: pointer;
+  max-width: 100px;
+  background-color: #333333;
+  color: #fff;
+  border-radius: 10px;
+  justify-content: center;
+}
+
+.info-button {
+  width: 40px;
+  cursor: pointer;
+}
