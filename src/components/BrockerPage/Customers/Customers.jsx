@@ -20,7 +20,7 @@ export function Customers() {
           <CustomersRowTitle />
           <div className="container-for-content" id="place-for-business-card">
             {data.map((el, i) => {
-              return <CustomerRow el={el} i={i} />
+              return <CustomerRow el={el} i={i} key={i}/>
             })}
           </div>
         </div>

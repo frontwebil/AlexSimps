@@ -1,10 +1,21 @@
 import { useState, useEffect } from "react";
-import { RouterProvider } from "react-router-dom";
+import {
+  RouterProvider,
+  createBrowserRouter,
+  Navigate,
+} from "react-router-dom";
 import { createAdminRouter } from "./AdminRouter";
 import { LoginPage } from "./LoginPage";
 import { UserContext } from "./UserContext";
 import { createBrockerRouter } from "./BrockerRouter";
-import Cookies from 'js-cookie';
+import Cookies from "js-cookie";
+
+const ProtectedRoute = ({ children, user }) => {
+  if (!user) {
+    return <Navigate to="/login" replace />;
+  }
+  return children;
+};
 
 export function App() {
   const [currentUser, setCurrentUser] = useState(null);
@@ -12,25 +23,23 @@ export function App() {
 
   const handleSetUser = (userData) => {
     if (userData) {
-      // Save to cookies with 7 days expiration
-      Cookies.set('user', JSON.stringify(userData), { expires: 14 });
+      Cookies.set("user", JSON.stringify(userData), { expires: 14 });
     } else {
-      // Remove from cookies on logout
-      Cookies.remove('user');
+      Cookies.remove("user");
     }
     setCurrentUser(userData);
   };
 
   useEffect(() => {
     const loadUserFromCookies = () => {
-      const userCookie = Cookies.get('user');
+      const userCookie = Cookies.get("user");
       if (userCookie) {
         try {
           const userData = JSON.parse(userCookie);
           setCurrentUser(userData);
         } catch (error) {
-          console.error('Failed to parse user cookie:', error);
-          Cookies.remove('user');
+          console.error("Failed to parse user cookie:", error);
+          Cookies.remove("user");
         }
       }
       setIsLoading(false);
@@ -38,26 +47,34 @@ export function App() {
 
     loadUserFromCookies();
   }, []);
-
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
+  const publicRouter = createBrowserRouter([
+    {
+      path: "/login",
+      element: <LoginPage setCurrentUser={handleSetUser} />,
+    },
+    {
+      path: "*",
+      element: <Navigate to="/login" replace />,
+    },
+  ]);
 
   if (!currentUser) {
-    return <LoginPage setCurrentUser={handleSetUser} />;
+    return <RouterProvider router={publicRouter} />;
   }
 
   let router;
-  if (currentUser.role === 'admin') {
+  if (currentUser.role === "admin") {
     router = createAdminRouter();
-  } else if (currentUser.role === 'agent') {
+  } else if (currentUser.role === "agent") {
     router = createBrockerRouter();
   } else {
-    return <LoginPage setCurrentUser={handleSetUser} />;
+    return <RouterProvider router={publicRouter} />;
   }
 
   return (
-    <UserContext.Provider value={{ currentUser, setCurrentUser: handleSetUser }}>
+    <UserContext.Provider
+      value={{ currentUser, setCurrentUser: handleSetUser }}
+    >
       <RouterProvider router={router} />
     </UserContext.Provider>
   );
