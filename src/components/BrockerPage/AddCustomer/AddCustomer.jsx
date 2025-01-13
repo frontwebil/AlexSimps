@@ -511,7 +511,7 @@ export function AddCustomer() {
                   onChange={handleChange}
                 />
               </div>
-              <div className="form-item">
+              {/* <div className="form-item">
                 <label>19. Phone</label>
                 <input
                   required
@@ -520,7 +520,7 @@ export function AddCustomer() {
                   value={formData.phone}
                   onChange={handleChange}
                 />
-              </div>
+              </div> */}
             </div>
             <button type="submit" className="submit-button">
               Next
