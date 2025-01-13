@@ -5,7 +5,10 @@ import { customersAdmin } from "../../../../consts/customersAdmin";
 
 export function AddCustomer() {
   const [typeCustomer, setTypeCustomer] = useState("Business Customer");
-
+  const [isCompleted, setIsCompleted] = useState(false);
+  const handleCloseModal = () => {
+    setIsCompleted(false);
+  };
   const [formData, setFormData] = useState({
     companyName: "",
     companyNumber: "",
@@ -86,9 +89,7 @@ export function AddCustomer() {
     e.preventDefault();
     customersAdmin.push({
       ...formData,
-      name: formData.contactDetail
-        ? `${formData.contactDetail}`
-        : `${formData.firstName} ${formData.lastName}`,
+      name: `-`,
       country: `${formData.address}`,
       status: "Pending",
       alerts: "0",
@@ -97,6 +98,8 @@ export function AddCustomer() {
       member:
         Math.floor(Math.random() * (7000000000 - 6000000000 + 1)) + 6000000000,
     });
+    console.log(customersAdmin)
+    setIsCompleted(true)
     setFormData({
       companyName: "",
       companyNumber: "",
@@ -528,6 +531,17 @@ export function AddCustomer() {
           </form>
         ) : (
           ""
+        )}
+
+        {isCompleted && (
+          <div className="modal">
+            <div className="modal-content">
+              <h3>Customer was added successfully!</h3>
+              <button onClick={handleCloseModal} className="close-button">
+                Close
+              </button>
+            </div>
+          </div>
         )}
       </div>
     </>
