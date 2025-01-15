@@ -18,7 +18,7 @@ export function HeaderBrockerPage() {
         </h2>
       </Link>
       <nav className="header-nav">
-        <Link to="/">
+        {/* <Link to="/">
           <p
             className={`nav-button ${
               location.slice(1).split("/")[0] == "business" ? "focus" : ""
@@ -26,7 +26,7 @@ export function HeaderBrockerPage() {
           >
             Business
           </p>
-        </Link>
+        </Link> */}
 
         <Link to="/customers/myCustomers">
           <p
@@ -35,11 +35,11 @@ export function HeaderBrockerPage() {
             Customers
           </p>
         </Link>
-        <Link to="/">
+        {/* <Link to="/">
           <p className={`nav-button ${location == "/reports" ? "focus" : ""}`}>
             Reports
           </p>
-        </Link>
+        </Link> */}
         <Link to="/settings">
           <p className={`nav-button ${location == "/settings" ? "focus" : ""}`}>
             Settings
