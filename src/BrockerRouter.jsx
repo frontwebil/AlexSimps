@@ -4,6 +4,7 @@ import { Customers } from "./components/BrockerPage/Customers/Customers";
 import { SettingsBrocker } from "./components/BrockerPage/Settings/SettingsBrocker";
 import { AddCustomer } from "./components/BrockerPage/AddCustomer/AddCustomer";
 import { CustomerDetails } from "./components/BrockerPage/Customers/СustomerInfo/СustomerDetails.jsx";
+import { MyMeetings } from "./components/BrockerPage/MyMeetings/MyMetings.jsx";
 
 export const createBrockerRouter = () => {
   return createBrowserRouter([
@@ -30,6 +31,14 @@ export const createBrockerRouter = () => {
         {
           path: "customers/:id",
           element: <CustomerDetails />,
+        },
+        {
+          path: "customers/myCustomers",
+          element: <Customers />,
+        },
+        {
+          path: "customers/myMeetings",
+          element: <MyMeetings />,
         },
       ],
     },

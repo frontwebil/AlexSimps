@@ -89,7 +89,11 @@ export function AddCustomer() {
     e.preventDefault();
     customersAdmin.push({
       ...formData,
-      name: `-`,
+      name: `${
+        typeCustomer === "Business Customer"
+          ? formData.contactDetails
+          : formData.firstName + formData.lastName
+      }`,
       country: `${formData.address}`,
       status: "Pending",
       alerts: "0",

@@ -28,7 +28,7 @@ export function HeaderBrockerPage() {
           </p>
         </Link>
 
-        <Link to="/customers">
+        <Link to="/customers/myCustomers">
           <p
             className={`nav-button ${location.slice(1).split("/")[0] == "customers" || location == "/"  ? "focus" : ""}`}
           >

@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
-import { customersAdmin } from "../../../../consts/customersAdmin";
+import { customersAgent } from "../../../../consts/customersAgent";
 import { ControlsPanelAdminPage } from "../../AdminPage/ControlsPanelAdminPage";
 import { Search } from "../Search/Search";
 
 export function AddCustomer() {
   const [typeCustomer, setTypeCustomer] = useState("Business Customer");
-
+  const [isCompleted, setIsCompleted] = useState(false);
+  const handleCloseModal = () => {
+    setIsCompleted(false);
+  };
   const [formData, setFormData] = useState({
     companyName: "",
     companyNumber: "",
@@ -45,7 +48,10 @@ export function AddCustomer() {
         dateOfPayment: "",
         paymentDetails: "",
       });
-    } else if (typeCustomer === "Tourist") {
+    } else if (
+      typeCustomer === "Tourist" ||
+      typeCustomer === "Foreign Employer"
+    ) {
       setFormData({
         passportId: "",
         lastName: "",
@@ -84,11 +90,13 @@ export function AddCustomer() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    customersAdmin.push({
+    customersAgent.push({
       ...formData,
-      name: formData.contactDetail
-        ? `${formData.contactDetail}`
-        : `${formData.firstName} ${formData.lastName}`,
+      name: `${
+        typeCustomer === "Business Customer"
+          ? formData.contactDetails
+          : formData.firstName + formData.lastName
+      }`,
       country: `${formData.address}`,
       status: "Pending",
       alerts: "0",
@@ -116,6 +124,7 @@ export function AddCustomer() {
       paymentDetails: "",
     });
     setTypeCustomer("Business Customer");
+    console.log(customersAgent)
   };
 
   return (
@@ -528,6 +537,16 @@ export function AddCustomer() {
           </form>
         ) : (
           ""
+        )}
+                {isCompleted && (
+          <div className="modal">
+            <div className="modal-content">
+              <h3>Customer was added successfully!</h3>
+              <button onClick={handleCloseModal} className="close-button">
+                Close
+              </button>
+            </div>
+          </div>
         )}
       </div>
     </>
