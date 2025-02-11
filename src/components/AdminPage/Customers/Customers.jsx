@@ -8,13 +8,27 @@ import { customersAdmin } from "../../../../consts/customersAdmin";
 
 export function Customers() {
   const [data, setData] = useState(customersAdmin);
-  const sortByButtons = ['tax' , 'notes' , 'alerts' , 'status' , 'country']
+  const sortByButtons = [
+    "tax",
+    "notes",
+    "alerts",
+    "status",
+    "country",
+    "companyName",
+    "agent",
+  ];
   return (
     <div>
       <ControlsPanelAdminPage />
-      <Search data={data} setData={setData} defaultData={customersAdmin}/>
+      <Search data={data} setData={setData} defaultData={customersAdmin} />
       <div className="business-list">
-        <SortFiltrButtons data={data} setData={setData} sortByButtons={sortByButtons} defaultData={customersAdmin} addCustomers={true}/>
+        <SortFiltrButtons
+          data={data}
+          setData={setData}
+          sortByButtons={sortByButtons}
+          defaultData={customersAdmin}
+          addCustomers={true}
+        />
         <div className="business-list-container">
           <CustomersRowTitle />
           <div className="container-for-content" id="place-for-business-card">
@@ -26,5 +40,5 @@ export function Customers() {
       </div>
       {/* <Footer /> */}
     </div>
-  )
+  );
 }

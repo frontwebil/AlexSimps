@@ -8,7 +8,8 @@ import { AgentsRow } from "./AgentsRow";
 
 export function Agents() {
   const [data, setData] = useState(AgentsData);
-  const sortByButtons = ["customers", "trends", "status", "city", "role"];
+  const sortByButtons = ["customers", "trends" , "status", "city", "role"];
+  const filtrBy = [];
   return (
     <div>
       <ControlsPanelAdminPage />
@@ -19,6 +20,7 @@ export function Agents() {
           setData={setData}
           sortByButtons={sortByButtons}
           defaultData={AgentsData}
+          filtrBy={filtrBy}
         />
         <div className="business-list-container">
           <AgentsRowTitle />

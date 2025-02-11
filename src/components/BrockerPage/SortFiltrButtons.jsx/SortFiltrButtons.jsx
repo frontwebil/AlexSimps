@@ -12,8 +12,11 @@ export function SortFiltrButtons({
   const [isFiltered, setIsFiltered] = useState(false);
   const [isOpenSort, setIsOpenSort] = useState(false);
   const [isOpenFiltr, setIsOpenFiltr] = useState(false);
+
   const [sortBy, setSortBy] = useState({ sort: sortByButtons[0], asc: true });
+
   const [filters, setFilters] = useState({});
+
   const [checkboxFilters, setCheckboxFilters] = useState({
     status: new Set(),
     country: new Set(),
@@ -29,6 +32,7 @@ export function SortFiltrButtons({
     city: new Set(),
     polica: new Set(),
   });
+  console.log(filters);
 
   useEffect(() => {
     const options = {
@@ -75,7 +79,9 @@ export function SortFiltrButtons({
   const handleFilterAction = () => {
     const filteredData = [...defaultData].filter((item) => {
       for (const field of ["status", "country", "role", "city", "polica"]) {
+        // Add a null check to prevent undefined errors
         if (
+          checkboxFilters[field] &&
           checkboxFilters[field].size > 0 &&
           !checkboxFilters[field].has(item[field])
         ) {
@@ -94,10 +100,23 @@ export function SortFiltrButtons({
         const isDate = (val) => /^\d{2}-\d{2}-\d{4}$/.test(val);
 
         if (isDate(value)) {
-          value = new Date(value.split("-").reverse().join("-")).getTime();
+          value = new Date(
+            value.split("-")[2],
+            value.split("-")[1] - 1,
+            value.split("-")[0]
+          );
           if (from)
-            from = new Date(from.split("-").reverse().join("-")).getTime();
-          if (to) to = new Date(to.split("-").reverse().join("-")).getTime();
+            from = new Date(
+              from.split("-")[2],
+              from.split("-")[1] - 1,
+              from.split("-")[0]
+            );
+          if (to)
+            to = new Date(
+              to.split("-")[2],
+              to.split("-")[1] - 1,
+              to.split("-")[0]
+            );
         } else if (!isNaN(value)) {
           value = Number(value);
           from = from ? Number(from) : "";
@@ -110,7 +129,7 @@ export function SortFiltrButtons({
         return matchesFrom && matchesTo;
       });
     });
-
+    console.log(filteredData);
     setData(filteredData);
     setIsFiltered(true);
     setIsOpenFiltr(false);
@@ -172,6 +191,7 @@ export function SortFiltrButtons({
       country: new Set(),
       role: new Set(),
       city: new Set(),
+      polica: new Set(), // Add this back
     });
     setIsFiltered(false);
     setData(defaultData);
@@ -248,7 +268,16 @@ export function SortFiltrButtons({
               <div className="sortFiltrButtonsMenu-container-column">
                 {sortByButtons.map((field, i) => (
                   <div className="filter-group" key={i}>
-                    <p style={{ textTransform: "capitalize" }}>
+                    <p
+                      style={{
+                        textTransform: "capitalize",
+                        display: `${
+                          ["lastUpdate", "annualTill"].includes(field)
+                            ? "none"
+                            : "text"
+                        }`,
+                      }}
+                    >
                       {field.replace(/([a-z])([A-Z])/g, "$1 $2")}
                     </p>
                     {["status", "country", "role", "city", "polica"].includes(
@@ -259,7 +288,10 @@ export function SortFiltrButtons({
                           <label key={j} className="checkbox-label">
                             <input
                               type="checkbox"
-                              checked={checkboxFilters[field].has(option)}
+                              checked={
+                                checkboxFilters &&
+                                checkboxFilters[field].has(option)
+                              }
                               onChange={() =>
                                 handleCheckboxChange(field, option)
                               }
@@ -269,7 +301,16 @@ export function SortFiltrButtons({
                         ))}
                       </div>
                     ) : (
-                      <div className="inputFlex">
+                      <div
+                        className="inputFlex"
+                        style={{
+                          display: `${
+                            ["lastUpdate", "annualTill"].includes(field)
+                              ? "none"
+                              : "text"
+                          }`,
+                        }}
+                      >
                         <input
                           type={
                             ["lastUpdate", "annualTill"].includes(field)

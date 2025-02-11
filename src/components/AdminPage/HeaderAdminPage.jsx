@@ -18,6 +18,15 @@ export function HeaderAdminPage() {
         </h2>
       </Link>
       <nav className="header-nav">
+        <Link to="/alert">
+          <p
+            className={`nav-button ${
+              location.slice(1).split("/")[0] == "alert" ? "focus" : ""
+            }`}
+          >
+            Alerts
+          </p>
+        </Link>
         <Link to="/business">
           <p
             className={`nav-button ${

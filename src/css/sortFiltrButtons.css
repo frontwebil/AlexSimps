@@ -180,3 +180,8 @@ select:focus {
 .checkbox-label input[type="checkbox"] {
   margin: 0;
 }
+
+.sortFiltrButtons-button.tagActive{
+  background-color: #983cdc;
+  color: #fff;
+}

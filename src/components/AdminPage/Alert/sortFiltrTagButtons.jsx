@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-export function SortFiltrButtons({
+export function SortFiltrTagButtons({
   data,
   setData,
   sortByButtons,
   defaultData = [],
-  addCustomers
+  addCustomers,
+  isTag,
+  setIsTag,
 }) {
   const [isSorted, setIsSorted] = useState(false);
   const [isFiltered, setIsFiltered] = useState(false);
@@ -20,7 +22,7 @@ export function SortFiltrButtons({
     role: new Set(),
     city: new Set(),
     companyName: new Set(),
-    agent: new Set()
+    agent: new Set(),
   });
 
   const [filterOptions, setFilterOptions] = useState({
@@ -29,7 +31,7 @@ export function SortFiltrButtons({
     role: new Set(),
     city: new Set(),
     companyName: new Set(),
-    agent: new Set()
+    agent: new Set(),
   });
 
   useEffect(() => {
@@ -43,14 +45,16 @@ export function SortFiltrButtons({
           .filter((item) => item && item.companyName !== "")
           .map((item) => item.companyName)
       ),
-      agent: new Set(defaultData.map((item) => item.agent))
+      agent: new Set(defaultData.map((item) => item.agent)),
     };
     setFilterOptions(options);
 
     const initialFilters = Object.fromEntries(
       sortByButtons.map((button) => [
         button,
-        ["status", "country", "role", "city", "companyName" , "agent"].includes(button)
+        ["status", "country", "role", "city", "companyName", "agent"].includes(
+          button
+        )
           ? []
           : { from: "", to: "" },
       ])
@@ -71,7 +75,11 @@ export function SortFiltrButtons({
   };
 
   const handleFilterChange = (field, type, value) => {
-    if (!["status", "country", "role", "city", "companyName" , "agent"].includes(field)) {
+    if (
+      !["status", "country", "role", "city", "companyName", "agent"].includes(
+        field
+      )
+    ) {
       setFilters((prev) => ({
         ...prev,
         [field]: { ...prev[field], [type]: value },
@@ -87,7 +95,7 @@ export function SortFiltrButtons({
         "role",
         "city",
         "companyName",
-        "agent"
+        "agent",
       ]) {
         if (
           checkboxFilters[field].size > 0 &&
@@ -99,7 +107,14 @@ export function SortFiltrButtons({
 
       return Object.entries(filters).every(([field, range]) => {
         if (
-          ["status", "country", "role", "city", "companyName" , "agent"].includes(field)
+          [
+            "status",
+            "country",
+            "role",
+            "city",
+            "companyName",
+            "agent",
+          ].includes(field)
         )
           return true;
 
@@ -177,7 +192,14 @@ export function SortFiltrButtons({
       Object.fromEntries(
         sortByButtons.map((button) => [
           button,
-          ["status", "country", "role", "city", "companyName" , "agent"].includes(button)
+          [
+            "status",
+            "country",
+            "role",
+            "city",
+            "companyName",
+            "agent",
+          ].includes(button)
             ? []
             : { from: "", to: "" },
         ])
@@ -189,6 +211,7 @@ export function SortFiltrButtons({
       role: new Set(),
       city: new Set(),
       companyName: new Set(),
+      agent: new Set(),
     });
     setIsFiltered(false);
     setData(defaultData);
@@ -216,6 +239,16 @@ export function SortFiltrButtons({
               Reset Filters
             </button>
           )}
+        </div>
+        <div className="sortFiltrButtons-flexButtons">
+          <button
+            className={`sortFiltrButtons-button ${
+              isTag === true ? "tagActive" : ""
+            }`}
+            onClick={() => setIsTag(!isTag)}
+          >
+            {isTag ? "Apply" : "Tag"}
+          </button>
         </div>
         {isOpenSort && (
           <div className="sortFiltrButtonsMenu">
@@ -268,14 +301,9 @@ export function SortFiltrButtons({
                     <p style={{ textTransform: "capitalize" }}>
                       {field.replace(/([a-z])([A-Z])/g, "$1 $2")}
                     </p>
-                    {[
-                      "status",
-                      "country",
-                      "role",
-                      "city",
-                      "companyName",
-                      "agent"
-                    ].includes(field) ? (
+                    {["status", "country", "role", "city", "agent"].includes(
+                      field
+                    ) ? (
                       <div className="checkbox-group">
                         {Array.from(filterOptions[field]).map((option, j) => (
                           <label key={j} className="checkbox-label">
@@ -293,7 +321,11 @@ export function SortFiltrButtons({
                     ) : (
                       <div className="inputFlex">
                         <input
-                          type="text"
+                          type={
+                            ["lastUpdate", "annualTill", "date"].includes(field)
+                              ? "date"
+                              : "text"
+                          }
                           className="sortFiltrInputs"
                           placeholder="From"
                           value={filters[field]?.from || ""}
@@ -302,7 +334,11 @@ export function SortFiltrButtons({
                           }
                         />
                         <input
-                          type="text"
+                          type={
+                            ["lastUpdate", "annualTill", "date"].includes(field)
+                              ? "date"
+                              : "text"
+                          }
                           className="sortFiltrInputs"
                           placeholder="To"
                           value={filters[field]?.to || ""}

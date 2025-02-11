@@ -320,3 +320,7 @@
   color: #1dab41;
   font-size: 12px;
 }
+
+.list-container-card.alarm{
+  background-color: rgb(255, 255, 178);
+}
