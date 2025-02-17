@@ -5,7 +5,7 @@ const handleDownload = (e, documentName) => {
   // Create a temporary link element
   const link = document.createElement("a");
   link.href = 'https://vta.kz/img/visa/Czech_Visa.jpg';
-  link.download = `${documentName}.jpg`; // Set the download filename
+  link.download = `${documentName}.png`; // Set the download filename
 
   // Trigger the download
   document.body.appendChild(link);
@@ -144,28 +144,51 @@ export function BusinessInfoTable() {
         </div>
 
         <div className="SitesInnerBasic-content-block">
-          <p
-            className="SitesInnerBasic-content-row-text link"
-            onClick={(e) => handleDownload(e, "medical-cartis")}
+          {/* <div
+            className="SitesInnerBasic-content-row"
+            style={{ alignItems: "center" }}
           >
+            <p className="SitesInnerBasic-content-row-text">PHOTO:</p>
+            {/* <img src={data.photo} alt="" className="icon-basic-user" /> 
+          </div>
+          <div className="SitesInnerBasic-content-row">
+            <p className="SitesInnerBasic-content-row-text">
+              System worker type:
+            </p>
+            <p className="SitesInnerBasic-content-row-text">
+              Local/Transit/Free/Office
+            </p>
+          </div> */}
+          <div className="SitesInnerBasic-content-row">
+            <p className="SitesInnerBasic-content-row-text">Created:</p>
+            <p className="SitesInnerBasic-content-row-text">18.07.2020</p>
+          </div>
+          <div className="SitesInnerBasic-content-row">
+            <p className="SitesInnerBasic-content-row-text">App Version:</p>
+            <p className="SitesInnerBasic-content-row-text">4.2</p>
+          </div>
+          <div className="SitesInnerBasic-content-row">
+            <p className="SitesInnerBasic-content-row-text">
+              Last App Activity:
+            </p>
+            <p
+              className="SitesInnerBasic-content-row-text location exit"
+              style={{ maxWidth: "" }}
+            >
+              Exit work - 22.01.2025
+            </p>
+          </div>
+          <p className="SitesInnerBasic-content-row-text link">
             Medical Cartis
           </p>
-          <p
-            className="SitesInnerBasic-content-row-text link"
-            onClick={(e) => handleDownload(e, "health-statement")}
-          >
+          <p className="SitesInnerBasic-content-row-text link">
             Health Statement
           </p>
           <div
             className="SitesInnerBasic-content-row"
             style={{ alignItems: "center" }}
           >
-            <p
-              className="SitesInnerBasic-content-row-text link"
-              onClick={(e) => handleDownload(e, "insurance")}
-            >
-              Insurance
-            </p>
+            <p className="SitesInnerBasic-content-row-text link">Insurance</p>
             <div
               className="location Active"
               style={{ padding: "5px", maxWidth: "50%", width: "50%" }}
@@ -177,20 +200,11 @@ export function BusinessInfoTable() {
             className="SitesInnerBasic-content-row"
             style={{ alignItems: "center" }}
           >
-            <p
-              className="SitesInnerBasic-content-row-text link"
-              onClick={(e) => handleDownload(e, "bet-lamed")}
-            >
-              Bet Lamed
-            </p>
-            <p
-              className="SitesInnerBasic-content-row-text link"
-              onClick={(e) => handleDownload(e, "files")}
-            >
-              2 files
-            </p>
+            <p className="SitesInnerBasic-content-row-text link">Bet Lamed</p>
+            <p className="SitesInnerBasic-content-row-text link">2 files</p>
           </div>
         </div>
+
         <div className="SitesInnerBasic-content-block">
           <p
             className="SitesInnerBasic-content-row-text link"
