@@ -58,6 +58,16 @@ export function HeaderAdminPage() {
             Reports
           </p>
         </Link> */}
+        <Link to="/">
+          <p className={`nav-button ${location == "/settings" ? "focus" : ""}`}>
+          Add Meeting
+          </p>
+        </Link>
+        <Link to="/">
+          <p className={`nav-button ${location == "/settings" ? "focus" : ""}`}>
+          Add Task
+          </p>
+        </Link>
         <Link to="/settings">
           <p className={`nav-button ${location == "/settings" ? "focus" : ""}`}>
             Settings
