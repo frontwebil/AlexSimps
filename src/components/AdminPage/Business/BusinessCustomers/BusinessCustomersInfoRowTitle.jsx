@@ -6,8 +6,8 @@ export function BusinessCustomerInfoRowTitle() {
       <div className="list-container-title" style={{maxWidth:'10%'}}>Member % </div>
       <div className="list-container-title" style={{maxWidth:'7%'}}>Tax %</div>
       <div className="list-container-title" style={{maxWidth:'10%'}}>Phone</div>
-      <div className="list-container-title" style={{maxWidth:'16%'}}>Country</div>
-      <div className="list-container-title" style={{maxWidth:'14%'}}>Status</div>
+      <div className="list-container-title" style={{maxWidth:'8%'}}>Country</div>
+      <div className="list-container-title" style={{maxWidth:'22%'}}>Status</div>
       <div className="list-container-title" style={{maxWidth:'5%'}}>Notes</div>
       <div className="list-container-title" style={{maxWidth:'5%'}}>Alerts</div>
       <div className="list-container-title" style={{maxWidth:'10%'}}>Agent</div>

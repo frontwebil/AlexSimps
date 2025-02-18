@@ -59,13 +59,13 @@ export function HeaderAdminPage() {
           </p>
         </Link> */}
         <Link to="/">
-          <p className={`nav-button ${location == "/settings" ? "focus" : ""}`}>
-          Add Meeting
+          <p className={`nav-button`}>
+          Meeting
           </p>
         </Link>
         <Link to="/">
-          <p className={`nav-button ${location == "/settings" ? "focus" : ""}`}>
-          Add Task
+          <p className={`nav-button`}>
+          Task
           </p>
         </Link>
         <Link to="/settings">

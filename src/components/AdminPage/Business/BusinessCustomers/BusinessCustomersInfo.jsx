@@ -8,23 +8,39 @@ import { useParams } from "react-router-dom";
 import { businessAll } from "../../../../../consts/business";
 import { customersAdmin } from "../../../../../consts/customersAdmin";
 
-export function BusinessCustomersInfo() {
-  const {id} = useParams()
-  const currentCompany = businessAll.find((el)=>el.idCompany === id).companyName;
+export function BusinessCustomersInfo({ filtrOptions , optionalPage}) {
+  const { id } = useParams();
+  const currentCompany = businessAll.find(
+    (el) => el.idCompany === id
+  ).companyName;
   const [defaultCustomers, setDefaultCustomers] = useState([]);
   const [data, setData] = useState([]);
   useEffect(() => {
     const filteredCustomers = customersAdmin.filter(
       (el) => el.companyName === currentCompany
     );
-    setDefaultCustomers(filteredCustomers);
-    setData(filteredCustomers);
-  }, [currentCompany]);
+    if (filtrOptions && filtrOptions.length > 0) {
+      const customersOptions = filteredCustomers.filter((el) =>
+        filtrOptions.includes(el.status)
+      );
+      setData(customersOptions);
+      setDefaultCustomers(customersOptions);
+    } else {
+      setData(filteredCustomers);
+      setDefaultCustomers(filteredCustomers);
+    }
+  }, [currentCompany, filtrOptions]);
   const sortByButtons = ["tax", "notes", "alerts", "status", "country"];
+  console.log(currentCompany)
   return (
     <div>
       <ControlsPanelAdminPage />
-      <Search data={data} setData={setData} defaultData={defaultCustomers} current={currentCompany}/>
+      <Search
+        data={data}
+        setData={setData}
+        defaultData={defaultCustomers}
+        current={`${currentCompany} ${optionalPage}`}
+      />
       <div className="business-list">
         <SortFiltrButtons
           data={data}

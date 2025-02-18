@@ -2,18 +2,19 @@
 export function CustomersRowTitle() {
   return (
     <div className="list-container-titles">
-      <div className="list-container-title" style={{maxWidth:'10%'}}>Passport</div>
-      <div className="list-container-title" style={{maxWidth:'10%'}}>Company Name</div>
+      <div className="list-container-title" style={{maxWidth:'5%'}}>Tax ID</div>
       <div className="list-container-title" style={{maxWidth:'12%'}}>Name</div>
-      <div className="list-container-title" style={{maxWidth:'10%'}}>Member % </div>
-      <div className="list-container-title" style={{maxWidth:'5%'}}>Tax %</div>
-      <div className="list-container-title" style={{maxWidth:'10%'}}>Phone</div>
-      <div className="list-container-title" style={{maxWidth:'8%'}}>Country</div>
-      <div className="list-container-title" style={{maxWidth:'10%'}}>Status</div>
-      <div className="list-container-title" style={{maxWidth:'5%'}}>Notes</div>
-      <div className="list-container-title" style={{maxWidth:'5%'}}>Alerts</div>
-      <div className="list-container-title" style={{maxWidth:'10%'}}>Agent</div>
+      <div className="list-container-title" style={{maxWidth:'10%'}}>CompanyName</div>
+      <div className="list-container-title" style={{maxWidth:'8%'}}>Passport</div>
+      <div className="list-container-title" style={{maxWidth:'8%'}}>Phone</div>
+      <div className="list-container-title" style={{maxWidth:'10%'}}>Country</div>
+      <div className="list-container-title" style={{maxWidth:'10%'}}>Insurance</div>
+      <div className="list-container-title" style={{maxWidth:'8%'}}>Agent</div>
+      <div className="list-container-title" style={{maxWidth:'7%'}}>Alert</div>
+      <div className="list-container-title" style={{maxWidth:'10%'}}>Fast Action</div>
       <div className="list-container-title" style={{maxWidth:'5%'}}>Details</div>
+      <div className="list-container-title" style={{maxWidth:'7%'}}>Edit</div>
     </div>
   );
 }
+

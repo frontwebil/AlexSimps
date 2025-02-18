@@ -17,6 +17,8 @@ export function Customers() {
     "companyName",
     "agent",
   ];
+  const [openRowId, setOpenRowId] = useState(null);
+
   return (
     <div>
       <ControlsPanelAdminPage />
@@ -33,7 +35,8 @@ export function Customers() {
           <CustomersRowTitle />
           <div className="container-for-content" id="place-for-business-card">
             {data.map((el, i) => {
-              return <CustomerRow key={i} el={el} i={i} />;
+              return <CustomerRow key={i} el={el} i={i} openRowId={openRowId}
+              setOpenRowId={setOpenRowId}/>;
             })}
           </div>
         </div>

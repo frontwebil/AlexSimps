@@ -63,7 +63,6 @@
   font-weight: 700;
 }
 
-
 .BackTo-button {
   display: flex;
   align-items: center;
@@ -82,7 +81,6 @@
   cursor: pointer;
 }
 
-
 .SitesInnerBasic {
   max-width: 1380px;
   margin: 0 auto;
@@ -91,8 +89,7 @@
   background: #f8fcfc;
   margin: 0 auto;
   padding: 25px 15px 25px;
-  display: flex
-;
+  display: flex;
   flex-direction: column;
   gap: 10px;
 }
@@ -112,7 +109,7 @@
 }
 .SitesInnerBasic-topInfo-block-text {
   font-size: 16px;
-  color: #FFFFFF;
+  color: #ffffff;
   font-weight: bold;
 }
 .SitesInnerBasic-topInfo-block-img {
@@ -162,25 +159,24 @@
 }
 .SitesInnerBasic-content-row-text {
   font-size: 13px;
-
 }
 
-.status.Active{
+.status.Active {
   background-color: #d8ecbc;
 }
 
-.link.inActive{
-  color: #828282!important;
+.link.inActive {
+  color: #828282 !important;
 }
 
-.icon-basic-user{
+.icon-basic-user {
   width: 50px;
 }
 
-.SitesInnerBasic-content-row p:first-child{
+.SitesInnerBasic-content-row p:first-child {
   width: 50%;
 }
-.SitesInnerBasic-content-row p:last-child{
+.SitesInnerBasic-content-row p:last-child {
   width: 50%;
 }
 
@@ -192,7 +188,7 @@
 }
 
 .location.exit {
-  background-color: #F7EFDC;
+  background-color: #f7efdc;
 }
 
 .location.Active {
@@ -204,4 +200,21 @@
   width: 125px;
   padding: 8px;
   border-radius: 10px;
+}
+
+.alertsButton {
+  width: 35px;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.statusActionButton {
+  padding: 10px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  text-align: center;
+  transition: all 0.3s ease;
+  color: #ffffff;
 }

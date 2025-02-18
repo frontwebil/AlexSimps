@@ -1,28 +1,27 @@
 import { IoIosInformationCircle } from "react-icons/io";
 import { Link } from "react-router-dom";
 
-export function CustomerRow({ el, i }) {
+export function CustomerRow({ el, i , openRowId , setOpenRowId}) {
+  const isOpen = openRowId === i;
+
   return (
     <div className="list-container-card" key={i}>
-      <div className="list-container-card-text" style={{ maxWidth: "10%" }}>
-        {el.passport}
-      </div>
-      <div className="list-container-card-text" style={{ maxWidth: "10%" }}>
-        {el.companyName}
+      <div className="list-container-card-text" style={{ maxWidth: "5%" }}>
+        {el.tax}
       </div>
       <div className="list-container-card-text" style={{ maxWidth: "12%" }}>
         {el.name}
       </div>
       <div className="list-container-card-text" style={{ maxWidth: "10%" }}>
-        {el.member}
-      </div>
-      <div className="list-container-card-text" style={{ maxWidth: "5%" }}>
-        {el.tax}
-      </div>
-      <div className="list-container-card-text" style={{ maxWidth: "10%" }}>
-        {el.phone}
+        {el.companyName}
       </div>
       <div className="list-container-card-text" style={{ maxWidth: "8%" }}>
+        {el.passport}
+      </div>
+      <div className="list-container-card-text" style={{ maxWidth: "8%" }}>
+        {el.phone}
+      </div>
+      <div className="list-container-card-text" style={{ maxWidth: "10%" }}>
         {el.country}
       </div>
       <div className="list-container-card-text" style={{ maxWidth: "10%" }}>
@@ -32,21 +31,48 @@ export function CustomerRow({ el, i }) {
           {el.status}
         </div>
       </div>
-      <div
+      {/* <div
         className="list-container-card-text center"
         style={{ maxWidth: "5%" }}
       >
         {el.notes}
+      </div> */}
+      <div className="list-container-card-text" style={{ maxWidth: "8%" }}>
+        {el.agent}
       </div>
       <div
         className="list-container-card-text center"
-        style={{ maxWidth: "5%" }}
-      >
+        style={{ maxWidth: "7%" , display:'flex' , alignItems:'center',gap:'10px',justifyContent:'center'}}
+        >
         {el.alerts}
+
+        {i < 4 && (
+          <img src="/icons/alert.png" alt="" className="alertsButton" />
+        )}
       </div>
-      <div className="list-container-card-text" style={{ maxWidth: "10%" }}>
-        {el.agent}
+
+      <div
+        className="list-container-card-text center"
+        style={{ maxWidth: "10%" , position:'relative' }}
+      >
+               <button
+          className="fast-action-btn"
+          onClick={() => setOpenRowId(isOpen ? null : i)}
+        >
+          Fast Action
+        </button>
+        {isOpen && (
+          <ul className="fast-actions-menu">
+            <li className="fast-action-item">Cancel/Renew/Edit Insurance</li>
+            <li className="fast-action-item">Open Quick Chat</li>
+            <li className="fast-action-item">Tag</li>
+            <li className="fast-action-item">Open Work Accident Form</li>
+            <li className="fast-action-item">Documents</li>
+            <li className="fast-action-item">Send Files BetLamed</li>
+          </ul>
+        )}
       </div>
+
       <Link
         to={`/customers/${el.tax}`}
         className="list-container-card-text center"
@@ -57,6 +83,20 @@ export function CustomerRow({ el, i }) {
           className="info-button"
         />
       </Link>
+      <div className="list-container-card-text center" style={{ maxWidth: "7%" }}>
+        <p className="edit-action-btn">
+        Edit
+        </p>
+      </div>
     </div>
   );
+}
+
+{
+  /* <div className="list-container-card-text" style={{ maxWidth: "10%" }}>
+        {el.companyName}
+      </div>
+      <div className="list-container-card-text" style={{ maxWidth: "10%" }}>
+        {el.member}
+      </div>*/
 }

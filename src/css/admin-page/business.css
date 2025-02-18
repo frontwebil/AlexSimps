@@ -109,6 +109,9 @@
 .list-container-card-text.underline {
   text-decoration: underline;
 }
+.list-container-card-text.underline a{
+  color: #000;
+}
 
 .list-container-card-text-details {
   font-weight: 500;

@@ -59,8 +59,20 @@ export const createAdminRouter = () => {
         },
         {
           path: 'business/:id',
-          element: <BusinessCustomersInfo/>
-        }
+          element: <BusinessCustomersInfo optionalPage={''}/>
+        },
+        {
+          path: 'business/:id/policies',
+          element: <BusinessCustomersInfo filtrOptions={["Active" , "Pending"]} optionalPage={"Policies"}/>
+        },
+        {
+          path: 'business/:id/request',
+          element: <BusinessCustomersInfo filtrOptions={["Empty"]} optionalPage={"Request"}/>
+        },
+        {
+          path: 'business/:id/alerts',
+          element: <BusinessCustomersInfo filtrOptions={["Canceled"]} optionalPage={"Alerts"}/>
+        },
       ],
     },
   ]);

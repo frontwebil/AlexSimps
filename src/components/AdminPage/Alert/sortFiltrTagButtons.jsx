@@ -1,15 +1,16 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 export function SortFiltrTagButtons({
   data,
   setData,
   sortByButtons,
   defaultData = [],
-  addCustomers,
+  // addCustomers,
   isTag,
   setIsTag,
 }) {
+  // eslint-disable-next-line no-unused-vars
   const [isSorted, setIsSorted] = useState(false);
   const [isFiltered, setIsFiltered] = useState(false);
   const [isOpenSort, setIsOpenSort] = useState(false);
@@ -223,17 +224,21 @@ export function SortFiltrTagButtons({
       <div className="sortFiltrButtons-container">
         <div className="sortFiltrButtons-flexButtons">
           <button
-            className={`sortFiltrButtons-button ${isSorted && "active"}`}
+            className={`sortFiltrButtons-button active`}
             onClick={() => setIsOpenSort(!isOpenSort)}
           >
             Sort
           </button>
           <button
-            className={`sortFiltrButtons-button ${isFiltered && "active"}`}
+            className={`sortFiltrButtons-button active`}
             onClick={() => setIsOpenFiltr(!isOpenFiltr)}
           >
             Filter
           </button>
+          <button className={`sortFiltrButtons-button active`}>
+            Companies
+          </button>
+          <button className={`sortFiltrButtons-button active`}>People</button>
           {isFiltered && (
             <button className="sortFiltrButtons-button" onClick={resetFilters}>
               Reset Filters
@@ -242,7 +247,13 @@ export function SortFiltrTagButtons({
         </div>
         <div className="sortFiltrButtons-flexButtons">
           <button
-            className={`sortFiltrButtons-button ${
+            className={`sortFiltrButtons-button active`}
+            onClick={() => setIsOpenFiltr(!isOpenFiltr)}
+          >
+            Show/Hide Columns
+          </button>
+          <button
+            className={`sortFiltrButtons-button active ${
               isTag === true ? "tagActive" : ""
             }`}
             onClick={() => setIsTag(!isTag)}
@@ -361,16 +372,6 @@ export function SortFiltrTagButtons({
             >
               Close
             </button>
-          </div>
-        )}
-        {addCustomers && (
-          <div className="sortFiltrButtons-flexButtons">
-            <Link
-              to="/addCustomer"
-              className={`sortFiltrButtons-button active`}
-            >
-              Add Customer
-            </Link>
           </div>
         )}
       </div>

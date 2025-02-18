@@ -6,8 +6,9 @@ export function SortFiltrButtons({
   setData,
   sortByButtons,
   defaultData = [],
-  addCustomers
+  addCustomers,
 }) {
+  // eslint-disable-next-line no-unused-vars
   const [isSorted, setIsSorted] = useState(false);
   const [isFiltered, setIsFiltered] = useState(false);
   const [isOpenSort, setIsOpenSort] = useState(false);
@@ -20,7 +21,7 @@ export function SortFiltrButtons({
     role: new Set(),
     city: new Set(),
     companyName: new Set(),
-    agent: new Set()
+    agent: new Set(),
   });
 
   const [filterOptions, setFilterOptions] = useState({
@@ -29,7 +30,7 @@ export function SortFiltrButtons({
     role: new Set(),
     city: new Set(),
     companyName: new Set(),
-    agent: new Set()
+    agent: new Set(),
   });
 
   useEffect(() => {
@@ -43,14 +44,16 @@ export function SortFiltrButtons({
           .filter((item) => item && item.companyName !== "")
           .map((item) => item.companyName)
       ),
-      agent: new Set(defaultData.map((item) => item.agent))
+      agent: new Set(defaultData.map((item) => item.agent)),
     };
     setFilterOptions(options);
 
     const initialFilters = Object.fromEntries(
       sortByButtons.map((button) => [
         button,
-        ["status", "country", "role", "city", "companyName" , "agent"].includes(button)
+        ["status", "country", "role", "city", "companyName", "agent"].includes(
+          button
+        )
           ? []
           : { from: "", to: "" },
       ])
@@ -71,7 +74,11 @@ export function SortFiltrButtons({
   };
 
   const handleFilterChange = (field, type, value) => {
-    if (!["status", "country", "role", "city", "companyName" , "agent"].includes(field)) {
+    if (
+      !["status", "country", "role", "city", "companyName", "agent"].includes(
+        field
+      )
+    ) {
       setFilters((prev) => ({
         ...prev,
         [field]: { ...prev[field], [type]: value },
@@ -87,7 +94,7 @@ export function SortFiltrButtons({
         "role",
         "city",
         "companyName",
-        "agent"
+        "agent",
       ]) {
         if (
           checkboxFilters[field].size > 0 &&
@@ -99,7 +106,14 @@ export function SortFiltrButtons({
 
       return Object.entries(filters).every(([field, range]) => {
         if (
-          ["status", "country", "role", "city", "companyName" , "agent"].includes(field)
+          [
+            "status",
+            "country",
+            "role",
+            "city",
+            "companyName",
+            "agent",
+          ].includes(field)
         )
           return true;
 
@@ -177,7 +191,14 @@ export function SortFiltrButtons({
       Object.fromEntries(
         sortByButtons.map((button) => [
           button,
-          ["status", "country", "role", "city", "companyName" , "agent"].includes(button)
+          [
+            "status",
+            "country",
+            "role",
+            "city",
+            "companyName",
+            "agent",
+          ].includes(button)
             ? []
             : { from: "", to: "" },
         ])
@@ -200,13 +221,13 @@ export function SortFiltrButtons({
       <div className="sortFiltrButtons-container">
         <div className="sortFiltrButtons-flexButtons">
           <button
-            className={`sortFiltrButtons-button ${isSorted && "active"}`}
+            className={`sortFiltrButtons-button active`}
             onClick={() => setIsOpenSort(!isOpenSort)}
           >
             Sort
           </button>
           <button
-            className={`sortFiltrButtons-button ${isFiltered && "active"}`}
+            className={`sortFiltrButtons-button active`}
             onClick={() => setIsOpenFiltr(!isOpenFiltr)}
           >
             Filter
@@ -274,7 +295,7 @@ export function SortFiltrButtons({
                       "role",
                       "city",
                       "companyName",
-                      "agent"
+                      "agent",
                     ].includes(field) ? (
                       <div className="checkbox-group">
                         {Array.from(filterOptions[field]).map((option, j) => (
@@ -327,16 +348,21 @@ export function SortFiltrButtons({
             </button>
           </div>
         )}
-        {addCustomers && (
-          <div className="sortFiltrButtons-flexButtons">
+        <div className="sortFiltrButtons-flexButtons">
+          {addCustomers && (
             <Link
               to="/addCustomer"
               className={`sortFiltrButtons-button active`}
             >
               Add Customer
             </Link>
-          </div>
-        )}
+          )}
+                    <button
+            className={`sortFiltrButtons-button active`}
+          >
+            Show/Hide Columns
+          </button>
+        </div>
       </div>
     </section>
   );
