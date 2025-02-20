@@ -11,6 +11,9 @@ import {insuranceDataActive} from "../../../../consts/insuranceDataActive"
 import { AlertsCustomerActivePendingRow } from "./AlertsCustomerActivePending.jsx/AlertsCustomerActivePendingRow";
 import { AlertsCustomerActivePendingTitleRow } from "./AlertsCustomerActivePending.jsx/AlertsCustomerActivePendingTitleRow";
 import { insuranceDataPending } from "../../../../consts/insuranceDataPending";
+import { AlertsCustomerCancelledTitleRow } from "./AlertsCustomerCancelled/AlertsCustomerCancelledTitle";
+import { insuranceDataCancelled } from "../../../../consts/insuranceDateCancelled";
+import { AlertsCustomerCancelledRow } from "./AlertsCustomerCancelled/AlertsCustomerCancelledRow";
 
 export function AlertCustomers() {
   const [data, setData] = useState(alertsCustomer);
@@ -142,6 +145,22 @@ export function AlertCustomers() {
               >
                 {insuranceDataPending.map((el, i) => {
                   return <AlertsCustomerActivePendingRow key={i} el={el} i={i} />;
+                })}
+              </div>
+            </>
+          ) : (
+            ""
+          )}
+          {activeOptions === "Cancelled" ? (
+            <>
+              {" "}
+              <AlertsCustomerCancelledTitleRow />
+              <div
+                className="container-for-content"
+                id="place-for-business-card"
+              >
+                {insuranceDataCancelled.map((el, i) => {
+                  return <AlertsCustomerCancelledRow key={i} el={el} i={i} />;
                 })}
               </div>
             </>
