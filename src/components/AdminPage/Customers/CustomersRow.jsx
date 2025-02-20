@@ -18,7 +18,7 @@ export function CustomerRow({ el, i , openRowId , setOpenRowId}) {
       <div className="list-container-card-text" style={{ maxWidth: "8%" }}>
         {el.passport}
       </div>
-      <div className="list-container-card-text" style={{ maxWidth: "8%" }}>
+      <div className="list-container-card-text" style={{ maxWidth: "10%" }}>
         {el.phone}
       </div>
       <div className="list-container-card-text" style={{ maxWidth: "10%" }}>
@@ -37,8 +37,10 @@ export function CustomerRow({ el, i , openRowId , setOpenRowId}) {
       >
         {el.notes}
       </div> */}
-      <div className="list-container-card-text" style={{ maxWidth: "8%" }}>
+      <div className="list-container-card-text underline" style={{ maxWidth: "8%" }}>
+        <Link to={`/agents/${el.idAgent}`}>
         {el.agent}
+        </Link>
       </div>
       <div
         className="list-container-card-text center"
@@ -53,13 +55,13 @@ export function CustomerRow({ el, i , openRowId , setOpenRowId}) {
 
       <div
         className="list-container-card-text center"
-        style={{ maxWidth: "10%" , position:'relative' }}
+        style={{ maxWidth: "8%" , position:'relative' }}
       >
                <button
           className="fast-action-btn"
           onClick={() => setOpenRowId(isOpen ? null : i)}
         >
-          Fast Action
+          <img src="/icons/more.png" alt="" style={{width:'20px'}}/>
         </button>
         {isOpen && (
           <ul className="fast-actions-menu">
@@ -84,9 +86,7 @@ export function CustomerRow({ el, i , openRowId , setOpenRowId}) {
         />
       </Link>
       <div className="list-container-card-text center" style={{ maxWidth: "7%" }}>
-        <p className="edit-action-btn">
-        Edit
-        </p>
+       <img src="/icons/editDate.png" alt="" className="edit-block" />
       </div>
     </div>
   );

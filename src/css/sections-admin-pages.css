@@ -105,17 +105,22 @@
 }
 
 .fast-action-btn {
-  background-color: #007bff;
+  background-color: #f5b184;
   color: white;
   border: none;
-  padding: 10px 15px;
+  padding: 7px 8px;
   cursor: pointer;
   font-size: 14px;
-  border-radius: 5px;
+  border-radius: 25px;
+}
+
+.fast-action-btn img{
+  width: 20px;
 }
 
 .fast-action-btn:hover {
-  background-color: #0056b3;
+  background-color: #f5b184;
+  opacity: 0.8;
 }
 
 .fast-actions-menu {
@@ -141,4 +146,13 @@
 
 .fast-action-item:hover {
   background: #f1f1f1;
+}
+
+.edit-block {
+  width: 40px;
+  padding: 7px;
+  background-color: #0ebd80!important;
+  color: rgb(82, 77, 77);
+  cursor: pointer;
+  border-radius: 15px;
 }

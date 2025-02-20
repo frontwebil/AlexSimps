@@ -68,6 +68,7 @@
 }
 .list-container-title {
   text-align: center;
+  align-content: center;
   background: #d8ecec;
   padding: 12px 5px;
   max-width: 160px;

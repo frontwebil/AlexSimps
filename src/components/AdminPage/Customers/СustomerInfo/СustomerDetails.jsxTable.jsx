@@ -258,6 +258,66 @@ export function BusinessInfoTable() {
           </p>
         </div>
       </div>
+      <div className="indicators-columns">
+        <div className="indicators-column">
+          <div className="indicators-column-row">
+            <div className="indicators-column-row-status">
+              <div className="indicator good"></div>
+              <p>New policies</p>
+            </div>
+            <p className="SitesInnerBasic-content-row-text">5</p>
+          </div>
+          <div className="indicators-column-row">
+            <div className="indicators-column-row-status">
+              <div className="indicator good"></div>
+              <p>Active policies</p>
+            </div>
+            <p className="SitesInnerBasic-content-row-text">51</p>
+          </div>
+        </div>
+        <div className="indicators-column">
+        <div className="indicators-column-row">
+            <div className="indicators-column-row-status">
+              <div className="indicator bad"></div>
+              <p>Cancelled policies</p>
+            </div>
+            <p className="SitesInnerBasic-content-row-text">78</p>
+          </div>
+          <div className="indicators-column-row">
+            <div className="indicators-column-row-status">
+              <div className="indicator bad"></div>
+              <p>Cancellation requests</p>
+            </div>
+            <p className="SitesInnerBasic-content-row-text">28</p>
+          </div>
+        </div>
+        <div className="indicators-column">
+        <div className="indicators-column-row">
+            <div className="indicators-column-row-status">
+              <div className="indicator good"></div>
+              <p>Renewal requests</p>
+            </div>
+            <p className="SitesInnerBasic-content-row-text">31</p>
+          </div>
+          <div className="indicators-column-row">
+            <div className="indicators-column-row-status">
+              <div className="indicator alert"></div>
+              <p>Passport change requests</p>
+            </div>
+            <p className="SitesInnerBasic-content-row-text">51</p>
+          </div>
+        </div>
+        <div className="indicators-column">
+        <div className="indicators-column-row">
+            <div className="indicators-column-row-status">
+              <div className="indicator good"></div>
+              <p>Employee number change requests</p>
+            </div>
+            <p className="SitesInnerBasic-content-row-text">210</p>
+          </div>
+
+        </div>
+      </div>
     </div>
   );
 }

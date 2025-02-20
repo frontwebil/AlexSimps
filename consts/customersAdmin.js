@@ -11,6 +11,7 @@ export const customersAdmin = [
     notes: "2",
     alerts: "1",
     agent: "Gil Dvir",
+    idAgent:'41S',
   },
   {
     companyName: "",
@@ -24,6 +25,7 @@ export const customersAdmin = [
     notes: "0",
     alerts: "1",
     agent: "Gil Dvir",
+    idAgent:'41S',
   },
   {
     companyName: "Extra",
@@ -37,6 +39,7 @@ export const customersAdmin = [
     notes: "1",
     alerts: "7",
     agent: "Meni Porat",
+    idAgent:'1D1',
   },
   {
     companyName: "Extra",
@@ -50,6 +53,8 @@ export const customersAdmin = [
     notes: "23",
     alerts: "23",
     agent: "Meni Porat",
+    idAgent:'1D1',
+
   },
   {
     companyName: "Extra",
@@ -63,6 +68,8 @@ export const customersAdmin = [
     notes: "12",
     alerts: "6",
     agent: "Gil Dvir",
+    idAgent:'41S',
+
   },
   {
     companyName: "Odu Israel",
@@ -89,6 +96,8 @@ export const customersAdmin = [
     notes: "3",
     alerts: "1",
     agent: "Gil Dvir",
+    idAgent:'41S',
+
   },
   {
     companyName: "Odu Israel",
@@ -128,6 +137,8 @@ export const customersAdmin = [
     notes: "2",
     alerts: "5",
     agent: "Gil Dvir",
+    idAgent:'41S',
+
   },
   {
     companyName: "Inta",
@@ -167,6 +178,8 @@ export const customersAdmin = [
     notes: "3",
     alerts: "4",
     agent: "Gil Dvir",
+    idAgent:'41S',
+
   },
   {
     companyName: "Tong De",
@@ -193,6 +206,8 @@ export const customersAdmin = [
     notes: "4",
     alerts: "2",
     agent: "Gil Dvir",
+    idAgent:'41S',
+
   },
   {
     companyName: "Odu Israel",
@@ -232,6 +247,8 @@ export const customersAdmin = [
     notes: "7",
     alerts: "1",
     agent: "Gil Dvir",
+    idAgent:'41S',
+
   },
   {
     companyName: "Extra",
@@ -258,6 +275,8 @@ export const customersAdmin = [
     notes: "5",
     alerts: "3",
     agent: "Gil Dvir",
+    idAgent:'41S',
+
   },
   {
     companyName: "Extra",
@@ -284,6 +303,8 @@ export const customersAdmin = [
     notes: "4",
     alerts: "5",
     agent: "Gil Dvir",
+    idAgent:'41S',
+
   },
   {
     companyName: "Extra",
@@ -310,6 +331,8 @@ export const customersAdmin = [
     notes: "9",
     alerts: "7",
     agent: "Gil Dvir",
+    idAgent:'41S',
+
   },
   {
     companyName: "Extra",

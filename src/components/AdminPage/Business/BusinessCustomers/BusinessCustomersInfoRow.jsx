@@ -7,13 +7,13 @@ export function BusinessCustomersInfoRow({ el, i }) {
       <div className="list-container-card-text" style={{ maxWidth: "10%" }}>
         {el.passport}
       </div>
-      <div className="list-container-card-text" style={{ maxWidth: "14%" }}>
+      <div className="list-container-card-text" style={{ maxWidth: "12%" }}>
         {el.name}
       </div>
       <div className="list-container-card-text" style={{ maxWidth: "10%" }}>
         {el.member}
       </div>
-      <div className="list-container-card-text" style={{ maxWidth: "7%" }}>
+      <div className="list-container-card-text" style={{ maxWidth: "5%" }}>
         {el.tax}
       </div>
       <div className="list-container-card-text" style={{ maxWidth: "10%" }}>
@@ -43,34 +43,40 @@ export function BusinessCustomersInfoRow({ el, i }) {
             width: "80%",
             backgroundColor:
               el.status === "Active"
-                ? "#ff4d4d"
+                ? "#f4d1d1"
                 : el.status === "Pending"
-                ? "#ffd700"
+                ? "#f6ebb5"
                 : el.status === "Empty"
                 ? "#4682b4"
-                : "#4CAF50",
+                : "#d8ecbc",
           }}
         >
           {el.status === "Active" && "Cancel"}
           {el.status === "Pending" && "Notice"}
-          {el.status === "Empty" && "Document Package Status"}
+          {el.status === "Empty" && "D Status"}
           {el.status === "Canceled" && "Activate"}
         </div>
       </div>
       <div
         className="list-container-card-text center"
-        style={{ maxWidth: "5%" }}
+        style={{ maxWidth: "6%" }}
+      >
+        <img src="/icons/documentStatus.png" alt="" style={{width:'30px'}}/>
+      </div>
+      <div
+        className="list-container-card-text center"
+        style={{ maxWidth: "4%" }}
       >
         {el.notes}
       </div>
       <div
         className="list-container-card-text center"
-        style={{ maxWidth: "5%" }}
+        style={{ maxWidth: "4%" }}
       >
         {el.alerts}
       </div>
-      <div className="list-container-card-text" style={{ maxWidth: "10%" }}>
-        {el.agent}
+      <div className="list-container-card-text underline" style={{ maxWidth: "10%" }}>
+        <Link to={el.idAgent ? `/agents/${el.idAgent}` : '/agents'}>{el.agent}</Link>
       </div>
       <Link
         to={{
