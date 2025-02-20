@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 // import { Link } from "react-router-dom";
 
 export function SortFiltrTagButtons({
@@ -9,8 +10,10 @@ export function SortFiltrTagButtons({
   // addCustomers,
   isTag,
   setIsTag,
+  additionalOptions
 }) {
   // eslint-disable-next-line no-unused-vars
+  const location = useLocation().pathname;
   const [isSorted, setIsSorted] = useState(false);
   const [isFiltered, setIsFiltered] = useState(false);
   const [isOpenSort, setIsOpenSort] = useState(false);
@@ -235,15 +238,18 @@ export function SortFiltrTagButtons({
           >
             Filter
           </button>
-          <button className={`sortFiltrButtons-button active`}>
-            Companies
-          </button>
-          <button className={`sortFiltrButtons-button active`}>People</button>
+          <div className="" style={{display:'flex',alignItems:'center'}}>
+            <Link to={'/alerts'} className={`sortFiltrButtons-button ${location == '/alerts' ? 'active' : ''}`} style={{borderRadius:'20px 0 0 20px'}}>
+              Business
+            </Link>
+            <Link to={'/alerts/customers'} className={`sortFiltrButtons-button ${location == '/alerts/customers' ? 'active' : ''}`} style={{borderRadius:'0 20px 20px 0'}}>Customers</Link>
+          </div>
           {isFiltered && (
             <button className="sortFiltrButtons-button" onClick={resetFilters}>
               Reset Filters
             </button>
           )}
+          {additionalOptions && additionalOptions()}
         </div>
         <div className="sortFiltrButtons-flexButtons">
           <button

@@ -1,0 +1,80 @@
+export const alertsCustomer = [
+  {
+    tax: 2066,
+    name: "Anatoli Vechurko",
+    company: "Solel Bone",
+    agent: "Gil Dvir",
+    status: "Active",
+    pendingToOpen: false,
+    pendingToRenew: false,
+    pendingToUpdate: true,
+    employeeNUpdate: true,
+    pendingToCancel: false,
+    rejectedPolicies: false
+  },
+  {
+    tax: 2063,
+    name: "Ion Sinu",
+    company: "Fico Tao",
+    agent: "Meni Porat",
+    status: "Active",
+    pendingToOpen: false,
+    pendingToRenew: false,
+    pendingToUpdate: false,
+    employeeNUpdate: false,
+    pendingToCancel: false,
+    rejectedPolicies: false
+  },
+  {
+    tax: 2062,
+    name: "Victor Jacota",
+    company: "Fico Tao",
+    agent: "Meni Porat",
+    status: "Pending",
+    pendingToOpen: true,
+    pendingToRenew: true,
+    pendingToUpdate: false,
+    employeeNUpdate: true,
+    pendingToCancel: false,
+    rejectedPolicies: false
+  },
+  {
+    tax: 2061,
+    name: "Mihal Clmentov",
+    company: "Brumi",
+    agent: "Gil Dvir",
+    status: "Active",
+    pendingToOpen: false,
+    pendingToRenew: false,
+    pendingToUpdate: false,
+    employeeNUpdate: false,
+    pendingToCancel: false,
+    rejectedPolicies: false
+  },
+  {
+    tax: 2063,
+    name: "Ion Sinu",
+    company: "Brumi",
+    agent: "Nicolae Sidit",
+    status: "Pending",
+    pendingToOpen: true,
+    pendingToRenew: true,
+    pendingToUpdate: false,
+    employeeNUpdate: false,
+    pendingToCancel: false,
+    rejectedPolicies: true
+  },
+  {
+    tax: 2062,
+    name: "Victor Jacota",
+    company: "Motiv Andasa",
+    agent: "Andi Bonea",
+    status: "Canceled",
+    pendingToOpen: false,
+    pendingToRenew: true,
+    pendingToUpdate: false,
+    employeeNUpdate: false,
+    pendingToCancel: true,
+    rejectedPolicies: false
+  }
+];

@@ -7,6 +7,8 @@ export function SortFiltrButtons({
   sortByButtons,
   defaultData = [],
   addCustomers,
+  toggleLink,
+  additionalOptions
 }) {
   // eslint-disable-next-line no-unused-vars
   const [isSorted, setIsSorted] = useState(false);
@@ -237,6 +239,8 @@ export function SortFiltrButtons({
               Reset Filters
             </button>
           )}
+          {toggleLink && toggleLink()}
+          {additionalOptions && additionalOptions()}
         </div>
         {isOpenSort && (
           <div className="sortFiltrButtonsMenu">

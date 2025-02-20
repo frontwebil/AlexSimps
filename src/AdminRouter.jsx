@@ -10,6 +10,7 @@ import { CustomerDetails } from "./components/AdminPage/Customers/СustomerInfo/
 import { BusinessCustomersInfo } from "./components/AdminPage/Business/BusinessCustomers/BusinessCustomersInfo.jsx";
 import { AddCustomer } from "./components/AdminPage/AddCustomer/AddCustomer.jsx";
 import { Alert } from "./components/AdminPage/Alert/Alert.jsx";
+import { AlertCustomers } from "./components/AdminPage/AlertCustomers/AlertCustomers.jsx";
 
 export const createAdminRouter = () => {
   return createBrowserRouter([
@@ -48,6 +49,10 @@ export const createAdminRouter = () => {
         {
           path: "alerts",
           element: <Alert />,
+        },
+        {
+          path: "alerts/customers",
+          element: <AlertCustomers />,
         },
         {
           path: "agents/:id",

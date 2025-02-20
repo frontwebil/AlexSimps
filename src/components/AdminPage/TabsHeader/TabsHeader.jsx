@@ -8,7 +8,7 @@ export function TabsHeader() {
         <Link to='/business' className={`reports-tabs-title-button reports-tabs-title-brocker ${location.pathname === '/business' || location.pathname==='/customers' || location.pathname==='/' ? 'active' : ''}`}>
           Customers
         </Link>
-        <Link to='/alerts' className={`reports-tabs-title-button reports-tabs-title-brocker ${location.pathname === '' || location.pathname==='/alerts' ? 'active' : ''}`}>
+        <Link to='/alerts/customers' className={`reports-tabs-title-button reports-tabs-title-brocker ${location.pathname === '' || location.pathname==='/alerts/customers' ? 'active' : ''}`}>
           Alerts
         </Link>
         <p className={`reports-tabs-title-button reports-tabs-title-brocker`}>
@@ -17,9 +17,9 @@ export function TabsHeader() {
         <p className={`reports-tabs-title-button reports-tabs-title-brocker`}>
           Meetings
         </p>
-        <p className={`reports-tabs-title-button reports-tabs-title-brocker`}>
+        <Link to={'/alerts'} className={`reports-tabs-title-button reports-tabs-title-brocker ${location.pathname === '/alerts' ? 'active' : ''}`}>
           Companies
-        </p>
+        </Link>
       </div>
     </div>
   );

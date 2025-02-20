@@ -92,6 +92,7 @@
   justify-content: space-between;
 }
 .list-container-card-text {
+  align-content: center;
   display: block;
   text-align: left;
   background: transparent;

@@ -1,15 +1,15 @@
 // import { Footer } from "../../Footer";
-import { alertsAll } from "../../../../consts/alerts";
-import { ControlsPanelAdminPage } from "../ControlsPanelAdminPage";
-import { Search } from "../Search/Search";
 import { useState } from "react";
-import { AlertRowTitle } from "./AlertRowTitle";
-import { SortFiltrTagButtons } from "./sortFiltrTagButtons";
-import { AlertRow } from "./AlertRow";
+import { ControlsPanelAdminPage } from "../ControlsPanelAdminPage";
 import { TabsHeader } from "../TabsHeader/TabsHeader";
+import { SortFiltrTagButtons } from "../Alert/sortFiltrTagButtons";
+import { Search } from "../Search/Search";
+import { alertsCustomer } from "../../../../consts/alertsCustomer";
+import { AlertCustomersTitle } from "./AlertCustomersTitle";
+import { AlertCustomersRow } from "./AlertCustomersRow";
 
-export function Alert() {
-  const [data, setData] = useState(alertsAll);
+export function AlertCustomers() {
+  const [data, setData] = useState(alertsCustomer);
   const sortByButtons = ['polices' , 'request' , 'employees' , 'notes' , 'alerts' , 'agent'];
   const [isTag , setIsTag] = useState(false);
   const additionalOptions = () => (
@@ -25,15 +25,15 @@ export function Alert() {
   return (
     <div>
       <ControlsPanelAdminPage />
-      <Search data={data} setData={setData} defaultData={alertsAll}/>
+      <Search data={data} setData={setData} defaultData={alertsCustomer}/>
       <TabsHeader/>
       <div className="business-list">
-        <SortFiltrTagButtons data={data} setData={setData} sortByButtons={sortByButtons} defaultData={alertsAll} isTag={isTag} setIsTag={setIsTag} additionalOptions={additionalOptions}/>
+        <SortFiltrTagButtons data={data} setData={setData} sortByButtons={sortByButtons} defaultData={alertsCustomer} isTag={isTag} setIsTag={setIsTag} additionalOptions={additionalOptions}/>
         <div className="business-list-container">
-          <AlertRowTitle isTag={isTag}/>
+          <AlertCustomersTitle/>
           <div className="container-for-content" id="place-for-business-card">
             {data.map((el, i) => {
-              return <AlertRow key={i} el={el} i={i} isTag={isTag} data={data} setData={setData}/>;
+              return <AlertCustomersRow key={i} el={el} i={i}/>;
             })}
           </div>
         </div>
