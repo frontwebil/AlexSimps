@@ -5,6 +5,7 @@ import { Search } from "../Search/Search";
 import { SortFiltrButtons } from "../SortFiltrButtons.jsx/SortFiltrButtons";
 import { AgentsRowTitle } from "./AgentsRowTitle";
 import { AgentsRow } from "./AgentsRow";
+import { TabsHeader } from "../TabsHeader/TabsHeader";
 
 export function Agents() {
   const [data, setData] = useState(AgentsData);
@@ -14,6 +15,7 @@ export function Agents() {
     <div>
       <ControlsPanelAdminPage />
       <Search data={data} setData={setData} defaultData={AgentsData} />
+      <TabsHeader/>
       <div className="business-list">
         <SortFiltrButtons
           data={data}

@@ -18,32 +18,6 @@ export function HeaderAdminPage() {
         </h2>
       </Link>
       <nav className="header-nav">
-        <Link to="/alert">
-          <p
-            className={`nav-button ${
-              location.slice(1).split("/")[0] == "alert" ? "focus" : ""
-            }`}
-          >
-            Alerts
-          </p>
-        </Link>
-        <Link to="/business">
-          <p
-            className={`nav-button ${
-              location.slice(1).split("/")[0] == "business" || location == "/" ? "focus" : ""
-            }`}
-          >
-            Business
-          </p>
-        </Link>
-
-        <Link to="/customers">
-          <p
-            className={`nav-button ${location.slice(1).split("/")[0] == "customers" ? "focus" : ""}`}
-          >
-            Customers
-          </p>
-        </Link>
         <Link to="/agents">
           <p
             className={`nav-button ${
@@ -59,15 +33,9 @@ export function HeaderAdminPage() {
           </p>
         </Link> */}
         <Link to="/">
-          <p className={`nav-button`}>
-          Meeting
-          </p>
+          <p className={`nav-button`}>Reports</p>
         </Link>
-        <Link to="/">
-          <p className={`nav-button`}>
-          Task
-          </p>
-        </Link>
+
         <Link to="/settings">
           <p className={`nav-button ${location == "/settings" ? "focus" : ""}`}>
             Settings
@@ -79,4 +47,40 @@ export function HeaderAdminPage() {
       </nav>
     </div>
   );
+}
+
+{
+  /* <Link to="/alert">
+<p
+  className={`nav-button ${
+    location.slice(1).split("/")[0] == "alert" ? "focus" : ""
+  }`}
+>
+  Alerts
+</p>
+</Link>
+<Link to="/business">
+<p
+  className={`nav-button ${
+    location.slice(1).split("/")[0] == "business" || location == "/" ? "focus" : ""
+  }`}
+>
+  Business
+</p>
+</Link>
+
+<Link to="/customers">
+<p
+  className={`nav-button ${location.slice(1).split("/")[0] == "customers" ? "focus" : ""}`}
+>
+  Customers
+</p>
+</Link> 
+
+        <Link to="/">
+          <p className={`nav-button`}>
+          Task
+          </p>
+        </Link>
+*/
 }

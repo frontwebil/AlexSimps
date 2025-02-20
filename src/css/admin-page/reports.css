@@ -15,10 +15,10 @@
   font-weight: 400;
   font-size: 15px;
   color: #fff;
-  max-width: 206px;
+  max-width: 100%;
   width: 100%;
   text-align: center;
-  padding: 22px 5px;
+  padding: 15px 5px;
   cursor: pointer;
 }
 

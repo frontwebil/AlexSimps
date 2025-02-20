@@ -1,3 +1,4 @@
+import { IoIosInformationCircle } from "react-icons/io";
 import { Link } from "react-router-dom";
 
 export function AgentsRow({ el, i }) {
@@ -15,8 +16,11 @@ export function AgentsRow({ el, i }) {
       <div className="list-container-card-text center" style={{maxWidth:'11%'}}>
         <p className={`${el.trends > 0 ? "green" : "red"}`}>{el.trends} %</p>
       </div>
-      <Link to={`/agents/${el.id}`} className="list-container-card-text" style={{maxWidth:'11%'}}>
-        <div className="list-container-card-text-details">Details</div>
+      <Link to={`/agents/${el.id}`} className="list-container-card-text center" style={{maxWidth:'11%'}}>
+              <IoIosInformationCircle
+                style={{ color: "#2894f4" }}
+                className="info-button"
+              />
       </Link>
     </div>
   );

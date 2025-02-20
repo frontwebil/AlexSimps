@@ -46,7 +46,7 @@ export const createAdminRouter = () => {
           element: <Customers />,
         },
         {
-          path: "alert",
+          path: "alerts",
           element: <Alert />,
         },
         {

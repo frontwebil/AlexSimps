@@ -6,6 +6,7 @@ import { businessAll } from "../../../../consts/business";
 import { BusinessRow } from "./BusinessRow";
 import { BusinessRowTitle } from "./BusinessRowTitle";
 import { useState } from "react";
+import { TabsHeader } from "../TabsHeader/TabsHeader";
 
 export function Business() {
   const [data, setData] = useState(businessAll);
@@ -14,6 +15,7 @@ export function Business() {
     <div>
       <ControlsPanelAdminPage />
       <Search data={data} setData={setData} defaultData={businessAll}/>
+      <TabsHeader/>
       <div className="business-list">
         <SortFiltrButtons data={data} setData={setData} sortByButtons={sortByButtons} defaultData={businessAll}/>
         <div className="business-list-container">

@@ -6,6 +6,7 @@ import { useState } from "react";
 import { AlertRowTitle } from "./AlertRowTitle";
 import { SortFiltrTagButtons } from "./sortFiltrTagButtons";
 import { AlertRow } from "./AlertRow";
+import { TabsHeader } from "../TabsHeader/TabsHeader";
 
 export function Alert() {
   const [data, setData] = useState(alertsAll);
@@ -15,6 +16,7 @@ export function Alert() {
     <div>
       <ControlsPanelAdminPage />
       <Search data={data} setData={setData} defaultData={alertsAll}/>
+      <TabsHeader/>
       <div className="business-list">
         <SortFiltrTagButtons data={data} setData={setData} sortByButtons={sortByButtons} defaultData={alertsAll} isTag={isTag} setIsTag={setIsTag}/>
         <div className="business-list-container">
