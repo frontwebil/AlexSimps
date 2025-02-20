@@ -4,7 +4,7 @@ const handleDownload = (e, documentName) => {
 
   // Create a temporary link element
   const link = document.createElement("a");
-  link.href = 'https://vta.kz/img/visa/Czech_Visa.jpg';
+  link.href = "https://vta.kz/img/visa/Czech_Visa.jpg";
   link.download = `${documentName}.png`; // Set the download filename
 
   // Trigger the download
@@ -15,7 +15,7 @@ const handleDownload = (e, documentName) => {
 
 export function BusinessInfoTable() {
   return (
-    <div className="SitesInnerBasic">
+    <div className="SitesInnerBasic" style={{ gap: 0 }}>
       <div className="SitesInnerBasic-topInfo">
         <div className="SitesInnerBasic-topInfo-block">
           <h2
@@ -258,7 +258,10 @@ export function BusinessInfoTable() {
           </p>
         </div>
       </div>
-      <div className="indicators-columns">
+      <div className="SitesInnerBasic-topInfo" style={{ color: "white" }}>
+        Employee History
+      </div>
+      {/* <div className="indicators-columns">
         <div className="indicators-column">
           <div className="indicators-column-row">
             <div className="indicators-column-row-status">
@@ -316,6 +319,163 @@ export function BusinessInfoTable() {
             <p className="SitesInnerBasic-content-row-text">210</p>
           </div>
 
+        </div>
+      </div> */}
+      <div className="list-container-titles">
+        <div className="list-container-title" style={{ maxWidth: "10%" }}>
+          Status
+        </div>
+        <div className="list-container-title" style={{ maxWidth: "10%" }}>
+          ID
+        </div>
+        <div className="list-container-title" style={{ maxWidth: "10%" }}>
+          Company
+        </div>
+        <div className="list-container-title" style={{ maxWidth: "10%" }}>
+          Employee
+        </div>
+        <div className="list-container-title" style={{ maxWidth: "10%" }}>
+          Insurance Company
+        </div>
+        <div className="list-container-title" style={{ maxWidth: "10%" }}>
+          Agent
+        </div>
+        <div className="list-container-title" style={{ maxWidth: "10%" }}>
+          Start Date
+        </div>
+        <div className="list-container-title" style={{ maxWidth: "10%" }}>
+          End Date
+        </div>
+        <div className="list-container-title" style={{ maxWidth: "10%" }}></div>
+        <div className="list-container-title" style={{ maxWidth: "10%" }}></div>
+      </div>
+      <div className="list-container-card">
+        <div className="list-container-card-text" style={{ maxWidth: "10%" }}>
+          <div className={`customer-list-container-card-status-block Canceled`}>
+            Canceled
+          </div>
+        </div>
+        <div className="list-container-card-text" style={{ maxWidth: "10%" }}>
+          2066
+        </div>
+        <div className="list-container-card-text" style={{ maxWidth: "10%" }}>
+          Solel Bone
+        </div>
+        <div className="list-container-card-text" style={{ maxWidth: "10%" }}>
+          Ion Sinu
+        </div>
+        <div className="list-container-card-text" style={{ maxWidth: "10%" }}>
+          Menora
+        </div>
+        <div
+          className="list-container-card-text underline"
+          style={{ maxWidth: "10%" }}
+        >
+          Gil Dvir
+        </div>
+        <div className="list-container-card-text" style={{ maxWidth: "10%" }}>
+          2024-06-01
+        </div>
+        <div className="list-container-card-text" style={{ maxWidth: "10%" }}>
+          2025-05-31
+        </div>
+        <div
+          className="list-container-card-text underline"
+          style={{ maxWidth: "10%" }}
+        >
+          Confirmation
+        </div>
+        <div
+          className="list-container-card-text underline"
+          style={{ maxWidth: "10%" }}
+        >
+          Card
+        </div>
+      </div>
+      <div className="list-container-card">
+        <div className="list-container-card-text" style={{ maxWidth: "10%" }}>
+          <div className={`customer-list-container-card-status-block Canceled`}>
+            Canceled
+          </div>
+        </div>
+        <div className="list-container-card-text" style={{ maxWidth: "10%" }}>
+          2066
+        </div>
+        <div className="list-container-card-text" style={{ maxWidth: "10%" }}>
+          Fico Tao
+        </div>
+        <div className="list-container-card-text" style={{ maxWidth: "10%" }}>
+          Ion Sinu
+        </div>
+        <div className="list-container-card-text" style={{ maxWidth: "10%" }}>
+          Menora
+        </div>
+        <div
+          className="list-container-card-text underline"
+          style={{ maxWidth: "10%" }}
+        >
+          Meni Porat
+        </div>
+        <div className="list-container-card-text" style={{ maxWidth: "10%" }}>
+          2024-06-01
+        </div>
+        <div className="list-container-card-text" style={{ maxWidth: "10%" }}>
+          2025-05-31
+        </div>
+        <div
+          className="list-container-card-text underline"
+          style={{ maxWidth: "10%" }}
+        >
+          Confirmation
+        </div>
+        <div
+          className="list-container-card-text underline"
+          style={{ maxWidth: "10%" }}
+        >
+          Card
+        </div>
+      </div>
+      <div className="list-container-card">
+        <div className="list-container-card-text" style={{ maxWidth: "10%" }}>
+          <div className={`customer-list-container-card-status-block Active`}>
+            Active
+          </div>
+        </div>
+        <div className="list-container-card-text" style={{ maxWidth: "10%" }}>
+          2066
+        </div>
+        <div className="list-container-card-text" style={{ maxWidth: "10%" }}>
+          Fico Tao
+        </div>
+        <div className="list-container-card-text" style={{ maxWidth: "10%" }}>
+          Ion Sinu
+        </div>
+        <div className="list-container-card-text" style={{ maxWidth: "10%" }}>
+          Menora
+        </div>
+        <div
+          className="list-container-card-text underline"
+          style={{ maxWidth: "10%" }}
+        >
+          Meni Porat
+        </div>
+        <div className="list-container-card-text" style={{ maxWidth: "10%" }}>
+          2024-06-01
+        </div>
+        <div className="list-container-card-text" style={{ maxWidth: "10%" }}>
+          2025-05-31
+        </div>
+        <div
+          className="list-container-card-text underline"
+          style={{ maxWidth: "10%" }}
+        >
+          Confirmation
+        </div>
+        <div
+          className="list-container-card-text underline"
+          style={{ maxWidth: "10%" }}
+        >
+          Card
         </div>
       </div>
     </div>
