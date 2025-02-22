@@ -27,41 +27,44 @@ export function AlertRow({ el, i, isTag, data, setData }) {
           />
         </div>
       )}
-      <div className="list-container-card-text" style={{ maxWidth: "10%" }}>
+      <div className="list-container-card-text" style={{ maxWidth: "8%" }}>
         {el.idCompany}
       </div>
-      <div className="list-container-card-text" style={{ maxWidth: "13%" }}>
+      <div className="list-container-card-text" style={{ maxWidth: "10%" }}>
         {el.companyName}
       </div>
-      <div className="list-container-card-text" style={{ maxWidth: "9%" }}>
-        {el.polices}
-      </div>
-      <div className="list-container-card-text" style={{ maxWidth: "9%" }}>
-        {el.request}
-      </div>
-      <div className="list-container-card-text" style={{ maxWidth: "9%" }}>
-        {el.employees}
+      <div className="list-container-card-text" style={{ maxWidth: "8%" }}>
+        {el.contact}
       </div>
       <div className="list-container-card-text" style={{ maxWidth: "10%" }}>
-        {el.date}
+        {el.polices}
       </div>
-      <div
-        className="list-container-card-text underline"
-        style={{ maxWidth: "9%" }}
-      >
-        {el.notes}
-      </div>
-      <div
-        className="list-container-card-text underline"
-        style={{ maxWidth: "9%" }}
-      >
-        {el.alerts}
-      </div>
-      <div
-        className="list-container-card-text underline"
-        style={{ maxWidth: "11%" }}
-      >
+      <div className="list-container-card-text" style={{ maxWidth: "8%" }}>
         {el.agent}
+      </div>
+      <div className="list-container-card-text" style={{ maxWidth: "10%" }}>
+        {el.requestNewPolices}
+      </div>
+      <div className="list-container-card-text" style={{ maxWidth: "10%" }}>
+        {el.canceledPolicies}
+      </div>
+      <div
+        className="list-container-card-text underline"
+        style={{ maxWidth: "10%" }}
+      >
+        {el.renewalApplications}
+      </div>
+      <div
+        className="list-container-card-text underline"
+        style={{ maxWidth: "10%" }}
+      >
+        {el.passportChangeRequest}
+      </div>
+      <div
+        className="list-container-card-text underline"
+        style={{ maxWidth: "10%" }}
+      >
+        {el.requestToChangeEmployeeNumber}
       </div>
       <Link
         to={`/business/${el.idCompany}`}
