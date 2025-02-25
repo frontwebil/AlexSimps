@@ -13,6 +13,7 @@ import { AlertsCustomerActivePendingTitleRow } from "./AlertsCustomerActivePendi
 import { insuranceDataPending } from "../../../../consts/insuranceDataPending";
 import { AlertsCustomerCancelledTitleRow } from "./AlertsCustomerCancelled/AlertsCustomerCancelledTitle";
 import { insuranceDataCancelled } from "../../../../consts/insuranceDateCancelled";
+import { insuranceDataNewRequest } from "../../../../consts/insuranceDataNewRequest";
 import { AlertsCustomerCancelledRow } from "./AlertsCustomerCancelled/AlertsCustomerCancelledRow";
 
 export function AlertCustomers() {
@@ -119,6 +120,22 @@ export function AlertCustomers() {
           ) : (
             ""
           )}
+          {activeOptions === "New" ? (
+            <>
+              {" "}
+              <AlertsCustomerActivePendingTitleRow />
+              <div
+                className="container-for-content"
+                id="place-for-business-card"
+              >
+                {insuranceDataNewRequest.map((el, i) => {
+                  return <AlertsCustomerActivePendingRow key={i} el={el} i={i} />;
+                })}
+              </div>
+            </>
+          ) : (
+            ""
+          )}
           {activeOptions === "Active" ? (
             <>
               {" "}
@@ -161,6 +178,22 @@ export function AlertCustomers() {
               >
                 {insuranceDataCancelled.map((el, i) => {
                   return <AlertsCustomerCancelledRow key={i} el={el} i={i} />;
+                })}
+              </div>
+            </>
+          ) : (
+            ""
+          )}
+                    {activeOptions === "Change" ? (
+            <>
+              {" "}
+              <AlertsCustomerActivePendingTitleRow />
+              <div
+                className="container-for-content"
+                id="place-for-business-card"
+              >
+                {insuranceDataNewRequest.map((el, i) => {
+                  return <AlertsCustomerActivePendingRow key={i} el={el} i={i} />;
                 })}
               </div>
             </>
