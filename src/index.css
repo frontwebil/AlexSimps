@@ -10,6 +10,8 @@
 @import url(css/admin-page/nav.css);
 @import url(css/sortFiltrButtons.css);
 @import url(css/addCustomer.css);
+@import url(css/EventLog.css);
+@import url(css/table-client-rigo.css);
 
 html,
 body {

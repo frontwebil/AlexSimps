@@ -1,0 +1,85 @@
+.table-container {
+  max-width: 1430px;
+  margin: 15px auto 40px;
+  overflow-x: auto;
+  width: max-content;
+  scrollbar-width: thin;
+  width: 100%;
+  border: 1px solid #d0d0d0;
+  border-radius: 10px;
+  background: #f8fcfc;
+  padding: 25px 15px 25px;
+}
+.table {
+  border-collapse: separate;
+  border-spacing: 0;
+
+}
+.table-block.nav {
+  justify-content: center;
+  text-align: center;
+}
+.table-row {
+  width: 1400px;
+  display: flex;
+  align-items: stretch;
+}
+.table-row.nav {
+  display: flex;
+  padding: 10px 0;
+  background-color: #e9f0feff;
+  text-align: center;
+  font-weight: 700;
+}
+.table-block {
+  padding: 8px;
+  text-align: left;
+  border: 1px solid #e9f0feff;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+  height: auto;
+  overflow: visible;
+  white-space: normal;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+}
+
+.table-block.center {
+  justify-content: center;
+}
+
+.location-button {
+  width: 30px;
+  cursor: pointer;
+}
+
+.tableFlex-block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.location.enter{
+  background-color: #E8F4E4;
+}
+.location.exit{
+  background-color: #F7EFDC;
+}
+.location.colleague{
+  background-color: #EFEFEF;
+}
+.location.brake{
+  background-color: orange;
+}
+.location.canceled {
+  background: #f4d1d1;
+}
+.location.pending {
+  background: #f6ebb5;
+}
+.location.empty {
+  background: #e9ecf0;
+}

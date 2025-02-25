@@ -20,4 +20,11 @@ export const USERS = [
     password: "pas123456",
     imgUser: "image/users/brocker-logo.svg",
   },
+  {
+    name: "Maayan Shapiro",
+    role: "client",
+    login: "client",
+    password: "123456Sqaz",
+    imgUser: "image/users/brocker-logo.svg",
+  },
 ];

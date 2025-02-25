@@ -5,6 +5,7 @@ import { LoginPage } from "./LoginPage";
 import { UserContext } from "./UserContext";
 import { createBrockerRouter } from "./BrockerRouter";
 import Cookies from 'js-cookie';
+import { createClientRouter } from "./ClientRouter";
 
 export function App() {
   const [currentUser, setCurrentUser] = useState(null);
@@ -50,8 +51,8 @@ export function App() {
     router = createAdminRouter();
   } else if (currentUser.role === 'agent') {
     router = createBrockerRouter();
-  } else {
-    return <LoginPage setCurrentUser={handleSetUser} />;
+  } else if (currentUser.role === 'client'){
+    router = createClientRouter();
   }
 
   return (
